@@ -1,0 +1,39 @@
+name: Bottleneck Monitor — daily update
+
+on:
+  schedule:
+    # 06:10 UTC daily (after US close the prior day, before GCC/Asia open).
+    - cron: "10 6 * * *"
+  workflow_dispatch: {}   # lets you run it manually from the Actions tab
+
+permissions:
+  contents: write          # needed to commit the refreshed data.json
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run updater
+        env:
+          FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+        run: python update.py
+
+      - name: Commit refreshed data
+        run: |
+          git config user.name  "bottleneck-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data.json
+          if git diff --staged --quiet; then
+            echo "No changes today."
+          else
+            git commit -m "data: daily bottleneck refresh $(date -u +%F)"
+            git push
+          fi
