@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bottleneck Monitor</title>
+<style>
+  :root{
+    --paper:#f5f1e8; --paper-deep:#ece6d8; --ink:#1a1714; --ink-soft:#3d3833;
+    --ink-mute:#7a7066; --rule:#cfc6b5; --rule-faint:#e0d9ca; --oxblood:#7e2017;
+    --gold:#b8902a; --ok:#2e7d52; --bad:#9a3024; --warn:#b07a14;
+    --mono:'SF Mono',ui-monospace,Menlo,monospace;
+    --serif:Georgia,'Times New Roman',serif;
+    --display:'Iowan Old Style',Georgia,serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.5}
+  .wrap{max-width:1100px;margin:0 auto;padding:32px 20px 80px}
+  header{border-bottom:3px double var(--ink);padding-bottom:18px;margin-bottom:8px}
+  .kicker{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--oxblood)}
+  h1{font-family:var(--display);font-size:38px;font-weight:700;margin:6px 0 4px;letter-spacing:-.01em}
+  h1 em{font-style:italic;color:var(--oxblood)}
+  .sub{font-family:var(--mono);font-size:11px;color:var(--ink-mute);letter-spacing:.04em}
+  .meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;font-family:var(--mono);font-size:10.5px;color:var(--ink-mute)}
+  .meta b{color:var(--ink-soft)}
+  .controls{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 8px}
+  .chip{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft);cursor:pointer}
+  .chip.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .group{margin-top:30px}
+  .group-h{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--oxblood);border-bottom:1px solid var(--rule);padding-bottom:6px;margin-bottom:14px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+  .card{border:1px solid var(--rule);background:var(--paper);padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+  .card.manual{border-style:dashed;background:transparent}
+  .card-top{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .tk{font-family:var(--mono);font-size:14px;font-weight:700;color:var(--ink)}
+  .nm{font-family:var(--display);font-style:italic;font-size:15px;color:var(--ink-soft)}
+  .layer{font-family:var(--mono);font-size:8.5px;letter-spacing:.05em;color:var(--ink-mute);margin-left:auto;text-transform:uppercase}
+  .price{font-family:var(--mono);font-size:13px;color:var(--ink)}
+  .price .chg{font-size:11px;margin-left:6px}
+  .up{color:var(--ok)} .down{color:var(--bad)}
+  .thesis{font-family:var(--serif);font-size:12px;line-height:1.5;color:var(--ink-soft);border-left:2px solid var(--rule-faint);padding-left:9px}
+  .flag{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.08em;padding:3px 8px;align-self:flex-start}
+  .flag.OPPORTUNITY,.flag.VALUE{background:#e6f5ec;color:var(--ok);border:1px solid var(--ok)}
+  .flag.COMPOUNDING,.flag.HOLD{background:var(--paper-deep);color:var(--ink-soft);border:1px solid var(--rule)}
+  .flag.EXTENDED{background:#fbf6e8;color:var(--warn);border:1px solid var(--gold)}
+  .flag.CAUTION{background:#f7e9e6;color:var(--bad);border:1px solid var(--bad)}
+  .flag.MANUAL{background:transparent;color:var(--ink-mute);border:1px dashed var(--rule)}
+  .flag-note{font-family:var(--serif);font-style:italic;font-size:11px;color:var(--ink-mute);margin-top:-2px}
+  .fps{display:grid;grid-template-columns:1fr 1fr;gap:5px 12px;font-family:var(--mono);font-size:9.5px}
+  .fp{display:flex;justify-content:space-between;gap:6px;border-bottom:1px dotted var(--rule-faint);padding-bottom:3px}
+  .fp .lab{color:var(--ink-mute);text-transform:uppercase;letter-spacing:.04em}
+  .fp .val{color:var(--ink-soft);text-align:right}
+  .fp .val.cheap,.fp .val.elite,.fp .val.strong,.fp .val.cold{color:var(--ok)}
+  .fp .val.rich,.fp .val.loss,.fp .val.weak,.fp .val.hot{color:var(--bad)}
+  .fp .val.fair,.fp .val.solid,.fp .val.mixed,.fp .val.warm,.fp .val.thin{color:var(--warn)}
+  footer{margin-top:48px;border-top:1px solid var(--rule);padding-top:16px;font-family:var(--mono);font-size:10px;color:var(--ink-mute);line-height:1.7}
+  .loading{font-family:var(--mono);font-size:12px;color:var(--ink-mute);padding:40px 0}
+  a{color:var(--oxblood)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">Hunt Doctrine · Standing Instrument</div>
+    <h1>The <em>Bottleneck</em> Monitor</h1>
+    <div class="sub">Daily fingerprint scan of every bottleneck name · auto-refreshed via GitHub Actions</div>
+    <div class="meta">
+      <span>Updated: <b id="updated">—</b></span>
+      <span>Names: <b id="count">—</b></span>
+      <span>Signals: valuation · momentum · crowding · quality</span>
+    </div>
+  </header>
+
+  <div class="controls" id="filters"></div>
+  <div id="content"><div class="loading">Loading the latest scan…</div></div>
+
+  <footer>
+    <div>The four reads are heuristics off live FMP data — <b>valuation</b> (PE band), <b>momentum</b> (price vs 50/200-day), <b>crowding</b> (1-year change), <b>quality</b> (net margin). The <b>flag</b> combines them into a single "so what." GCC/Singapore names show as judgment cards — their exchanges don't quote cleanly on the feed.</div>
+    <div style="margin-top:8px">Not investment advice. A monitor surfaces signals; the thesis and the decision stay yours. Fingerprints &amp; framework: the Hunt Doctrine.</div>
+  </footer>
+</div>
+
+<script>
+const LAYER_ORDER = ["Semi · Equipment","Semi · Compute","Semi · Foundry","Semi · IP","Semi · Memory","Semi · Metrology","Semi · Interconnect","Semi · Networking","Semi · Photonics","Cloud","AI Power","Healthcare","Materials","EM Fintech","Aerospace","Logistics","Defense","GCC Infra","GCC Utility","GCC Energy","SG Infra"];
+let DATA = null, activeFilter = "all";
+
+function fmtPrice(m){
+  if(!m || m.price==null) return "—";
+  let s = `$${Number(m.price).toLocaleString(undefined,{maximumFractionDigits:2})}`;
+  if(m.chg1y!=null){
+    const cls = m.chg1y>=0?"up":"down";
+    s += ` <span class="chg ${cls}">${m.chg1y>=0?"+":""}${Number(m.chg1y).toFixed(0)}% 1y</span>`;
+  }
+  return s;
+}
+function fp(label, pair){
+  if(!pair) return "";
+  const [tag, txt] = pair;
+  return `<div class="fp"><span class="lab">${label}</span><span class="val ${tag}">${txt}</span></div>`;
+}
+function card(it){
+  const m = it.metrics, s = it.signals, flag = it.flag || ["HOLD",""];
+  if(!it.quotable){
+    return `<div class="card manual">
+      <div class="card-top"><span class="tk">${it.sym.replace(/\..*$/,'')}</span><span class="nm">${it.name}</span><span class="layer">${it.layer}</span></div>
+      <div class="thesis">${it.thesis}</div>
+      <span class="flag MANUAL">MANUAL · ${it.exchange||'GCC/SG'}</span>
+      <div class="flag-note">Price not on feed — track manually in your broker.</div>
+    </div>`;
+  }
+  return `<div class="card">
+    <div class="card-top"><span class="tk">${it.sym}</span><span class="nm">${it.name}</span><span class="layer">${it.layer}</span></div>
+    <div class="price">${fmtPrice(m)}</div>
+    <div class="thesis">${it.thesis}</div>
+    <span class="flag ${flag[0]}">${flag[0]}</span>
+    <div class="flag-note">${flag[1]||""}</div>
+    <div class="fps">
+      ${fp("Valuation", s&&s.valuation)}
+      ${fp("Momentum", s&&s.momentum)}
+      ${fp("Crowding", s&&s.crowding)}
+      ${fp("Quality", s&&s.quality)}
+    </div>
+  </div>`;
+}
+function render(){
+  const c = document.getElementById("content");
+  if(!DATA){c.innerHTML='<div class="loading">No data yet — the first daily run will populate this.</div>';return;}
+  document.getElementById("updated").textContent = DATA.updated;
+  document.getElementById("count").textContent = DATA.count;
+
+  let items = DATA.items;
+  if(activeFilter==="flagged") items = items.filter(i=>i.flag && ["OPPORTUNITY","VALUE","CAUTION","EXTENDED"].includes(i.flag[0]));
+  else if(activeFilter==="ai") items = items.filter(i=>i.factor==="AI");
+  else if(activeFilter==="div") items = items.filter(i=>i.factor==="DIV"||i.factor==="SPEC");
+  else if(activeFilter==="gcc") items = items.filter(i=>!i.quotable);
+
+  // group by layer
+  const groups = {};
+  items.forEach(i=>{(groups[i.layer]=groups[i.layer]||[]).push(i);});
+  const order = LAYER_ORDER.filter(l=>groups[l]).concat(Object.keys(groups).filter(l=>!LAYER_ORDER.includes(l)));
+  c.innerHTML = order.map(l=>`
+    <div class="group">
+      <div class="group-h">${l} <span style="color:var(--ink-mute);font-weight:400">· ${groups[l].length}</span></div>
+      <div class="grid">${groups[l].map(card).join("")}</div>
+    </div>`).join("") || '<div class="loading">No names match this filter.</div>';
+}
+function buildFilters(){
+  const f = [["all","All"],["flagged","Flagged"],["ai","AI-correlated"],["div","Uncorrelated"],["gcc","GCC / SG"]];
+  document.getElementById("filters").innerHTML = f.map(([k,l])=>
+    `<button class="chip ${k==='all'?'active':''}" data-f="${k}">${l}</button>`).join("");
+  document.querySelectorAll(".chip").forEach(b=>b.onclick=()=>{
+    activeFilter=b.dataset.f;
+    document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("active",x===b));
+    render();
+  });
+}
+fetch("data.json?_="+Date.now())
+  .then(r=>r.ok?r.json():Promise.reject())
+  .then(d=>{DATA=d;buildFilters();render();})
+  .catch(()=>{document.getElementById("content").innerHTML='<div class="loading">data.json not found yet. Run the Action once (Actions tab → Run workflow), then refresh.</div>';buildFilters();});
+</script>
+</body>
+</html>
