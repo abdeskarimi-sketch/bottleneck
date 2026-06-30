@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-30 07:35 UTC",
+  "updated": "2026-06-30 08:09 UTC (sample)",
   "count": 36,
   "items": [
     {
@@ -11,25 +11,42 @@
       "quotable": true,
       "exchange": "",
       "metrics": {
-        "price": null,
-        "pe": null,
-        "ma50": null,
-        "ma200": null,
-        "chg1y": null,
-        "netMargin": null,
-        "mktCap": null,
-        "yearHigh": null,
-        "yearLow": null
+        "price": 1873,
+        "pe": 42,
+        "chg1y": 150,
+        "ma50": 1816.81,
+        "ma200": 1685.7,
+        "grossMargin": 0.515,
+        "opMargin": 0.309,
+        "netMargin": 0.20600000000000002,
+        "roic": 0.45,
+        "revenue": 32000000000.0,
+        "rnd": 3200000000.0,
+        "mktCap": 740000000000.0,
+        "yearHigh": 2434.9,
+        "yearLow": 1123.8
       },
       "signals": {
-        "valuation": null,
-        "momentum": null,
-        "crowding": null,
-        "quality": null
+        "valuation": [
+          "rich",
+          "PE 42"
+        ],
+        "momentum": [
+          "strong",
+          "above 50>200"
+        ],
+        "crowding": [
+          "warm",
+          "+150% 1y"
+        ],
+        "quality": [
+          "solid",
+          "52% gross margin"
+        ]
       },
       "flag": [
-        "HOLD",
-        "No strong signal \u2014 thesis-driven"
+        "COMPOUNDING",
+        "Moat economics + momentum intact"
       ]
     },
     {
@@ -41,25 +58,42 @@
       "quotable": true,
       "exchange": "",
       "metrics": {
-        "price": null,
-        "pe": null,
-        "ma50": null,
-        "ma200": null,
-        "chg1y": null,
-        "netMargin": null,
-        "mktCap": null,
-        "yearHigh": null,
-        "yearLow": null
+        "price": 194,
+        "pe": 55,
+        "chg1y": 180,
+        "ma50": 188.18,
+        "ma200": 174.6,
+        "grossMargin": 0.75,
+        "opMargin": 0.44999999999999996,
+        "netMargin": 0.30000000000000004,
+        "roic": 0.9,
+        "revenue": 130000000000.0,
+        "rnd": 13000000000.0,
+        "mktCap": 4800000000000.0,
+        "yearHigh": 252.20000000000002,
+        "yearLow": 116.39999999999999
       },
       "signals": {
-        "valuation": null,
-        "momentum": null,
-        "crowding": null,
-        "quality": null
+        "valuation": [
+          "rich",
+          "PE 55"
+        ],
+        "momentum": [
+          "strong",
+          "above 50>200"
+        ],
+        "crowding": [
+          "hot",
+          "+180% 1y \u2014 discovered"
+        ],
+        "quality": [
+          "elite",
+          "75% gross margin"
+        ]
       },
       "flag": [
-        "HOLD",
-        "No strong signal \u2014 thesis-driven"
+        "EXTENDED",
+        "Discovered + richly priced \u2014 watch, don't chase"
       ]
     },
     {
@@ -71,25 +105,42 @@
       "quotable": true,
       "exchange": "",
       "metrics": {
-        "price": null,
-        "pe": null,
-        "ma50": null,
-        "ma200": null,
-        "chg1y": null,
-        "netMargin": null,
-        "mktCap": null,
-        "yearHigh": null,
-        "yearLow": null
+        "price": 452,
+        "pe": 28,
+        "chg1y": 95,
+        "ma50": 438.44,
+        "ma200": 406.8,
+        "grossMargin": 0.56,
+        "opMargin": 0.336,
+        "netMargin": 0.22400000000000003,
+        "roic": 0.28,
+        "revenue": 90000000000.0,
+        "rnd": 9000000000.0,
+        "mktCap": 900000000000.0,
+        "yearHigh": 587.6,
+        "yearLow": 271.2
       },
       "signals": {
-        "valuation": null,
-        "momentum": null,
-        "crowding": null,
-        "quality": null
+        "valuation": [
+          "fair",
+          "PE 28"
+        ],
+        "momentum": [
+          "strong",
+          "above 50>200"
+        ],
+        "crowding": [
+          "warm",
+          "+95% 1y"
+        ],
+        "quality": [
+          "solid",
+          "56% gross margin"
+        ]
       },
       "flag": [
-        "HOLD",
-        "No strong signal \u2014 thesis-driven"
+        "COMPOUNDING",
+        "Moat economics + momentum intact"
       ]
     },
     {
@@ -101,25 +152,42 @@
       "quotable": true,
       "exchange": "",
       "metrics": {
-        "price": null,
-        "pe": null,
-        "ma50": null,
-        "ma200": null,
-        "chg1y": null,
-        "netMargin": null,
-        "mktCap": null,
-        "yearHigh": null,
-        "yearLow": null
+        "price": 344,
+        "pe": 180,
+        "chg1y": 156,
+        "ma50": 333.68,
+        "ma200": 309.6,
+        "grossMargin": 0.96,
+        "opMargin": 0.576,
+        "netMargin": 0.384,
+        "roic": 0.18,
+        "revenue": 4000000000.0,
+        "rnd": 400000000.0,
+        "mktCap": 140000000000.0,
+        "yearHigh": 447.2,
+        "yearLow": 206.4
       },
       "signals": {
-        "valuation": null,
-        "momentum": null,
-        "crowding": null,
-        "quality": null
+        "valuation": [
+          "rich",
+          "PE 180"
+        ],
+        "momentum": [
+          "strong",
+          "above 50>200"
+        ],
+        "crowding": [
+          "hot",
+          "+156% 1y \u2014 discovered"
+        ],
+        "quality": [
+          "elite",
+          "96% gross margin"
+        ]
       },
       "flag": [
-        "HOLD",
-        "No strong signal \u2014 thesis-driven"
+        "EXTENDED",
+        "Discovered + richly priced \u2014 watch, don't chase"
       ]
     },
     {
@@ -131,25 +199,42 @@
       "quotable": true,
       "exchange": "",
       "metrics": {
-        "price": null,
-        "pe": null,
-        "ma50": null,
-        "ma200": null,
-        "chg1y": null,
-        "netMargin": null,
-        "mktCap": null,
-        "yearHigh": null,
-        "yearLow": null
+        "price": 540,
+        "pe": 90,
+        "chg1y": 297,
+        "ma50": 523.8,
+        "ma200": 486.0,
+        "grossMargin": 0.53,
+        "opMargin": 0.318,
+        "netMargin": 0.21200000000000002,
+        "roic": 0.08,
+        "revenue": 26000000000.0,
+        "rnd": 2600000000.0,
+        "mktCap": 870000000000.0,
+        "yearHigh": 702.0,
+        "yearLow": 324.0
       },
       "signals": {
-        "valuation": null,
-        "momentum": null,
-        "crowding": null,
-        "quality": null
+        "valuation": [
+          "rich",
+          "PE 90"
+        ],
+        "momentum": [
+          "strong",
+          "above 50>200"
+        ],
+        "crowding": [
+          "hot",
+          "+297% 1y \u2014 discovered"
+        ],
+        "quality": [
+          "solid",
+          "53% gross margin"
+        ]
       },
       "flag": [
-        "HOLD",
-        "No strong signal \u2014 thesis-driven"
+        "EXTENDED",
+        "Discovered + richly priced \u2014 watch, don't chase"
       ]
     },
     {
@@ -161,25 +246,42 @@
       "quotable": true,
       "exchange": "",
       "metrics": {
-        "price": null,
-        "pe": null,
-        "ma50": null,
-        "ma200": null,
-        "chg1y": null,
-        "netMargin": null,
-        "mktCap": null,
-        "yearHigh": null,
-        "yearLow": null
+        "price": 375,
+        "pe": 70,
+        "chg1y": 90,
+        "ma50": 363.75,
+        "ma200": 337.5,
+        "grossMargin": 0.63,
+        "opMargin": 0.378,
+        "netMargin": 0.252,
+        "roic": 0.18,
+        "revenue": 51000000000.0,
+        "rnd": 5100000000.0,
+        "mktCap": 1800000000000.0,
+        "yearHigh": 487.5,
+        "yearLow": 225.0
       },
       "signals": {
-        "valuation": null,
-        "momentum": null,
-        "crowding": null,
-        "quality": null
+        "valuation": [
+          "rich",
+          "PE 70"
+        ],
+        "momentum": [
+          "strong",
+          "above 50>200"
+        ],
+        "crowding": [
+          "warm",
+          "+90% 1y"
+        ],
+        "quality": [
+          "elite",
+          "63% gross margin"
+        ]
       },
       "flag": [
-        "HOLD",
-        "No strong signal \u2014 thesis-driven"
+        "COMPOUNDING",
+        "Moat economics + momentum intact"
       ]
     },
     {
@@ -191,25 +293,42 @@
       "quotable": true,
       "exchange": "",
       "metrics": {
-        "price": null,
-        "pe": null,
-        "ma50": null,
-        "ma200": null,
-        "chg1y": null,
-        "netMargin": null,
-        "mktCap": null,
-        "yearHigh": null,
-        "yearLow": null
+        "price": 699,
+        "pe": 28,
+        "chg1y": 91,
+        "ma50": 678.03,
+        "ma200": 629.1,
+        "grossMargin": 0.48,
+        "opMargin": 0.288,
+        "netMargin": 0.192,
+        "roic": 0.35,
+        "revenue": 27000000000.0,
+        "rnd": 2700000000.0,
+        "mktCap": 200000000000.0,
+        "yearHigh": 908.7,
+        "yearLow": 419.4
       },
       "signals": {
-        "valuation": null,
-        "momentum": null,
-        "crowding": null,
-        "quality": null
+        "valuation": [
+          "fair",
+          "PE 28"
+        ],
+        "momentum": [
+          "strong",
+          "above 50>200"
+        ],
+        "crowding": [
+          "warm",
+          "+91% 1y"
+        ],
+        "quality": [
+          "solid",
+          "48% gross margin"
+        ]
       },
       "flag": [
-        "HOLD",
-        "No strong signal \u2014 thesis-driven"
+        "COMPOUNDING",
+        "Moat economics + momentum intact"
       ]
     },
     {
@@ -221,25 +340,42 @@
       "quotable": true,
       "exchange": "",
       "metrics": {
-        "price": null,
-        "pe": null,
-        "ma50": null,
-        "ma200": null,
-        "chg1y": null,
-        "netMargin": null,
-        "mktCap": null,
-        "yearHigh": null,
-        "yearLow": null
+        "price": 412,
+        "pe": 30,
+        "chg1y": 74,
+        "ma50": 399.64,
+        "ma200": 370.8,
+        "grossMargin": 0.49,
+        "opMargin": 0.294,
+        "netMargin": 0.196,
+        "roic": 0.4,
+        "revenue": 15000000000.0,
+        "rnd": 1500000000.0,
+        "mktCap": 120000000000.0,
+        "yearHigh": 535.6,
+        "yearLow": 247.2
       },
       "signals": {
-        "valuation": null,
-        "momentum": null,
-        "crowding": null,
-        "quality": null
+        "valuation": [
+          "fair",
+          "PE 30"
+        ],
+        "momentum": [
+          "strong",
+          "above 50>200"
+        ],
+        "crowding": [
+          "warm",
+          "+74% 1y"
+        ],
+        "quality": [
+          "solid",
+          "49% gross margin"
+        ]
       },
       "flag": [
-        "HOLD",
-        "No strong signal \u2014 thesis-driven"
+        "COMPOUNDING",
+        "Moat economics + momentum intact"
       ]
     },
     {
@@ -251,25 +387,42 @@
       "quotable": true,
       "exchange": "",
       "metrics": {
-        "price": null,
-        "pe": null,
-        "ma50": null,
-        "ma200": null,
-        "chg1y": null,
-        "netMargin": null,
-        "mktCap": null,
-        "yearHigh": null,
-        "yearLow": null
+        "price": 246,
+        "pe": 60,
+        "chg1y": 180,
+        "ma50": 238.62,
+        "ma200": 221.4,
+        "grossMargin": 0.615,
+        "opMargin": 0.369,
+        "netMargin": 0.246,
+        "roic": 0.35,
+        "revenue": 11000000000.0,
+        "rnd": 1100000000.0,
+        "mktCap": 330000000000.0,
+        "yearHigh": 319.8,
+        "yearLow": 147.6
       },
       "signals": {
-        "valuation": null,
-        "momentum": null,
-        "crowding": null,
-        "quality": null
+        "valuation": [
+          "rich",
+          "PE 60"
+        ],
+        "momentum": [
+          "strong",
+          "above 50>200"
+        ],
+        "crowding": [
+          "hot",
+          "+180% 1y \u2014 discovered"
+        ],
+        "quality": [
+          "elite",
+          "62% gross margin"
+        ]
       },
       "flag": [
-        "HOLD",
-        "No strong signal \u2014 thesis-driven"
+        "EXTENDED",
+        "Discovered + richly priced \u2014 watch, don't chase"
       ]
     },
     {
@@ -281,25 +434,42 @@
       "quotable": true,
       "exchange": "",
       "metrics": {
-        "price": null,
-        "pe": null,
-        "ma50": null,
-        "ma200": null,
-        "chg1y": null,
-        "netMargin": null,
-        "mktCap": null,
-        "yearHigh": null,
-        "yearLow": null
+        "price": 324,
+        "pe": 30,
+        "chg1y": 180,
+        "ma50": 314.28,
+        "ma200": 291.6,
+        "grossMargin": 0.54,
+        "opMargin": 0.324,
+        "netMargin": 0.21600000000000003,
+        "roic": 0.15,
+        "revenue": 1000000000.0,
+        "rnd": 100000000.0,
+        "mktCap": 16000000000.0,
+        "yearHigh": 421.2,
+        "yearLow": 194.4
       },
       "signals": {
-        "valuation": null,
-        "momentum": null,
-        "crowding": null,
-        "quality": null
+        "valuation": [
+          "fair",
+          "PE 30"
+        ],
+        "momentum": [
+          "strong",
+          "above 50>200"
+        ],
+        "crowding": [
+          "hot",
+          "+180% 1y \u2014 discovered"
+        ],
+        "quality": [
+          "solid",
+          "54% gross margin"
+        ]
       },
       "flag": [
-        "HOLD",
-        "No strong signal \u2014 thesis-driven"
+        "COMPOUNDING",
+        "Moat economics + momentum intact"
       ]
     },
     {
@@ -311,25 +481,42 @@
       "quotable": true,
       "exchange": "",
       "metrics": {
-        "price": null,
-        "pe": null,
-        "ma50": null,
-        "ma200": null,
-        "chg1y": null,
-        "netMargin": null,
-        "mktCap": null,
-        "yearHigh": null,
-        "yearLow": null
+        "price": 170,
+        "pe": 168,
+        "chg1y": 60,
+        "ma50": 164.9,
+        "ma200": 153.0,
+        "grossMargin": 0.5,
+        "opMargin": 0.3,
+        "netMargin": 0.2,
+        "roic": 0.18,
+        "revenue": 430000000.0,
+        "rnd": 43000000.0,
+        "mktCap": 8000000000.0,
+        "yearHigh": 221.0,
+        "yearLow": 102.0
       },
       "signals": {
-        "valuation": null,
-        "momentum": null,
-        "crowding": null,
-        "quality": null
+        "valuation": [
+          "rich",
+          "PE 168"
+        ],
+        "momentum": [
+          "strong",
+          "above 50>200"
+        ],
+        "crowding": [
+          "warm",
+          "+60% 1y"
+        ],
+        "quality": [
+          "solid",
+          "50% gross margin"
+        ]
       },
       "flag": [
-        "HOLD",
-        "No strong signal \u2014 thesis-driven"
+        "COMPOUNDING",
+        "Moat economics + momentum intact"
       ]
     },
     {
@@ -341,25 +528,42 @@
       "quotable": true,
       "exchange": "",
       "metrics": {
-        "price": null,
-        "pe": null,
-        "ma50": null,
-        "ma200": null,
-        "chg1y": null,
-        "netMargin": null,
-        "mktCap": null,
-        "yearHigh": null,
-        "yearLow": null
+        "price": 449,
+        "pe": 120,
+        "chg1y": 197,
+        "ma50": 435.53,
+        "ma200": 404.1,
+        "grossMargin": 0.74,
+        "opMargin": 0.444,
+        "netMargin": 0.296,
+        "roic": 0.1,
+        "revenue": 900000000.0,
+        "rnd": 90000000.0,
+        "mktCap": 70000000000.0,
+        "yearHigh": 583.7,
+        "yearLow": 269.4
       },
       "signals": {
-        "valuation": null,
-        "momentum": null,
-        "crowding": null,
-        "quality": null
+        "valuation": [
+          "rich",
+          "PE 120"
+        ],
+        "momentum": [
+          "strong",
+          "above 50>200"
+        ],
+        "crowding": [
+          "hot",
+          "+197% 1y \u2014 discovered"
+        ],
+        "quality": [
+          "elite",
+          "74% gross margin"
+        ]
       },
       "flag": [
-        "HOLD",
-        "No strong signal \u2014 thesis-driven"
+        "EXTENDED",
+        "Discovered + richly priced \u2014 watch, don't chase"
       ]
     },
     {
@@ -371,25 +575,42 @@
       "quotable": true,
       "exchange": "",
       "metrics": {
-        "price": null,
-        "pe": null,
-        "ma50": null,
-        "ma200": null,
-        "chg1y": null,
-        "netMargin": null,
-        "mktCap": null,
-        "yearHigh": null,
-        "yearLow": null
+        "price": 256,
+        "pe": 90,
+        "chg1y": 294,
+        "ma50": 248.32,
+        "ma200": 230.4,
+        "grossMargin": 0.65,
+        "opMargin": 0.39,
+        "netMargin": 0.26,
+        "roic": 0.1,
+        "revenue": 440000000.0,
+        "rnd": 44000000.0,
+        "mktCap": 40000000000.0,
+        "yearHigh": 332.8,
+        "yearLow": 153.6
       },
       "signals": {
-        "valuation": null,
-        "momentum": null,
-        "crowding": null,
-        "quality": null
+        "valuation": [
+          "rich",
+          "PE 90"
+        ],
+        "momentum": [
+          "strong",
+          "above 50>200"
+        ],
+        "crowding": [
+          "hot",
+          "+294% 1y \u2014 discovered"
+        ],
+        "quality": [
+          "elite",
+          "65% gross margin"
+        ]
       },
       "flag": [
-        "HOLD",
-        "No strong signal \u2014 thesis-driven"
+        "EXTENDED",
+        "Discovered + richly priced \u2014 watch, don't chase"
       ]
     },
     {
@@ -401,25 +622,42 @@
       "quotable": true,
       "exchange": "",
       "metrics": {
-        "price": null,
-        "pe": null,
-        "ma50": null,
-        "ma200": null,
-        "chg1y": null,
-        "netMargin": null,
-        "mktCap": null,
-        "yearHigh": null,
-        "yearLow": null
+        "price": 1124,
+        "pe": 18,
+        "chg1y": 1036,
+        "ma50": 1090.28,
+        "ma200": 1011.6,
+        "grossMargin": 0.39,
+        "opMargin": 0.23399999999999999,
+        "netMargin": 0.15600000000000003,
+        "roic": 0.16,
+        "revenue": 35000000000.0,
+        "rnd": 3500000000.0,
+        "mktCap": 200000000000.0,
+        "yearHigh": 1461.2,
+        "yearLow": 674.4
       },
       "signals": {
-        "valuation": null,
-        "momentum": null,
-        "crowding": null,
-        "quality": null
+        "valuation": [
+          "cheap",
+          "PE 18"
+        ],
+        "momentum": [
+          "strong",
+          "above 50>200"
+        ],
+        "crowding": [
+          "hot",
+          "+1036% 1y \u2014 discovered"
+        ],
+        "quality": [
+          "thin",
+          "39% gross margin"
+        ]
       },
       "flag": [
         "HOLD",
-        "No strong signal \u2014 thesis-driven"
+        "No strong signal"
       ]
     },
     {
@@ -431,25 +669,42 @@
       "quotable": true,
       "exchange": "",
       "metrics": {
-        "price": null,
-        "pe": null,
-        "ma50": null,
-        "ma200": null,
-        "chg1y": null,
-        "netMargin": null,
-        "mktCap": null,
-        "yearHigh": null,
-        "yearLow": null
+        "price": 191,
+        "pe": 15,
+        "chg1y": -5,
+        "ma50": 185.26999999999998,
+        "ma200": 171.9,
+        "grossMargin": 0.56,
+        "opMargin": 0.336,
+        "netMargin": 0.22400000000000003,
+        "roic": 0.3,
+        "revenue": 39000000000.0,
+        "rnd": 3900000000.0,
+        "mktCap": 210000000000.0,
+        "yearHigh": 248.3,
+        "yearLow": 114.6
       },
       "signals": {
-        "valuation": null,
-        "momentum": null,
-        "crowding": null,
-        "quality": null
+        "valuation": [
+          "cheap",
+          "PE 15"
+        ],
+        "momentum": [
+          "strong",
+          "above 50>200"
+        ],
+        "crowding": [
+          "neutral",
+          "-5% 1y"
+        ],
+        "quality": [
+          "solid",
+          "56% gross margin"
+        ]
       },
       "flag": [
-        "HOLD",
-        "No strong signal \u2014 thesis-driven"
+        "VALUE",
+        "Cheap relative to its economics"
       ]
     },
     {
@@ -461,25 +716,42 @@
       "quotable": true,
       "exchange": "",
       "metrics": {
-        "price": null,
-        "pe": null,
-        "ma50": null,
-        "ma200": null,
-        "chg1y": null,
-        "netMargin": null,
-        "mktCap": null,
-        "yearHigh": null,
-        "yearLow": null
+        "price": 525,
+        "pe": 35,
+        "chg1y": 40,
+        "ma50": 509.25,
+        "ma200": 472.5,
+        "grossMargin": 0.12,
+        "opMargin": 0.072,
+        "netMargin": 0.048,
+        "roic": 0.18,
+        "revenue": 3000000000.0,
+        "rnd": 300000000.0,
+        "mktCap": 20000000000.0,
+        "yearHigh": 682.5,
+        "yearLow": 315.0
       },
       "signals": {
-        "valuation": null,
-        "momentum": null,
-        "crowding": null,
-        "quality": null
+        "valuation": [
+          "fair",
+          "PE 35"
+        ],
+        "momentum": [
+          "strong",
+          "above 50>200"
+        ],
+        "crowding": [
+          "neutral",
+          "+40% 1y"
+        ],
+        "quality": [
+          "commodity",
+          "12% gross margin \u2014 thin"
+        ]
       },
       "flag": [
         "HOLD",
-        "No strong signal \u2014 thesis-driven"
+        "No strong signal"
       ]
     },
     {
@@ -491,25 +763,42 @@
       "quotable": true,
       "exchange": "",
       "metrics": {
-        "price": null,
-        "pe": null,
-        "ma50": null,
-        "ma200": null,
-        "chg1y": null,
-        "netMargin": null,
-        "mktCap": null,
-        "yearHigh": null,
-        "yearLow": null
+        "price": 149,
+        "pe": 30,
+        "chg1y": -8,
+        "ma50": 144.53,
+        "ma200": 134.1,
+        "grossMargin": 0.71,
+        "opMargin": 0.426,
+        "netMargin": 0.284,
+        "roic": 0.2,
+        "revenue": 55000000000.0,
+        "rnd": 5500000000.0,
+        "mktCap": 400000000000.0,
+        "yearHigh": 193.70000000000002,
+        "yearLow": 89.39999999999999
       },
       "signals": {
-        "valuation": null,
-        "momentum": null,
-        "crowding": null,
-        "quality": null
+        "valuation": [
+          "fair",
+          "PE 30"
+        ],
+        "momentum": [
+          "strong",
+          "above 50>200"
+        ],
+        "crowding": [
+          "neutral",
+          "-8% 1y"
+        ],
+        "quality": [
+          "elite",
+          "71% gross margin"
+        ]
       },
       "flag": [
-        "HOLD",
-        "No strong signal \u2014 thesis-driven"
+        "COMPOUNDING",
+        "Moat economics + momentum intact"
       ]
     },
     {
@@ -521,25 +810,42 @@
       "quotable": true,
       "exchange": "",
       "metrics": {
-        "price": null,
-        "pe": null,
-        "ma50": null,
-        "ma200": null,
-        "chg1y": null,
-        "netMargin": null,
-        "mktCap": null,
-        "yearHigh": null,
-        "yearLow": null
+        "price": 264,
+        "pe": 28,
+        "chg1y": 40,
+        "ma50": 256.08,
+        "ma200": 237.6,
+        "grossMargin": 0.42,
+        "opMargin": 0.252,
+        "netMargin": 0.168,
+        "roic": 0.1,
+        "revenue": 25000000000.0,
+        "rnd": 2500000000.0,
+        "mktCap": 80000000000.0,
+        "yearHigh": 343.2,
+        "yearLow": 158.4
       },
       "signals": {
-        "valuation": null,
-        "momentum": null,
-        "crowding": null,
-        "quality": null
+        "valuation": [
+          "fair",
+          "PE 28"
+        ],
+        "momentum": [
+          "strong",
+          "above 50>200"
+        ],
+        "crowding": [
+          "neutral",
+          "+40% 1y"
+        ],
+        "quality": [
+          "solid",
+          "42% gross margin"
+        ]
       },
       "flag": [
-        "HOLD",
-        "No strong signal \u2014 thesis-driven"
+        "COMPOUNDING",
+        "Moat economics + momentum intact"
       ]
     },
     {
@@ -551,25 +857,42 @@
       "quotable": true,
       "exchange": "",
       "metrics": {
-        "price": null,
-        "pe": null,
-        "ma50": null,
-        "ma200": null,
-        "chg1y": null,
-        "netMargin": null,
-        "mktCap": null,
-        "yearHigh": null,
-        "yearLow": null
+        "price": 1208,
+        "pe": 62,
+        "chg1y": 16,
+        "ma50": 1171.76,
+        "ma200": 1087.2,
+        "grossMargin": 0.82,
+        "opMargin": 0.49199999999999994,
+        "netMargin": 0.328,
+        "roic": 0.3,
+        "revenue": 45000000000.0,
+        "rnd": 4500000000.0,
+        "mktCap": 1100000000000.0,
+        "yearHigh": 1570.4,
+        "yearLow": 724.8
       },
       "signals": {
-        "valuation": null,
-        "momentum": null,
-        "crowding": null,
-        "quality": null
+        "valuation": [
+          "rich",
+          "PE 62"
+        ],
+        "momentum": [
+          "strong",
+          "above 50>200"
+        ],
+        "crowding": [
+          "neutral",
+          "+16% 1y"
+        ],
+        "quality": [
+          "elite",
+          "82% gross margin"
+        ]
       },
       "flag": [
-        "HOLD",
-        "No strong signal \u2014 thesis-driven"
+        "COMPOUNDING",
+        "Moat economics + momentum intact"
       ]
     },
     {
@@ -581,25 +904,42 @@
       "quotable": true,
       "exchange": "",
       "metrics": {
-        "price": null,
-        "pe": null,
-        "ma50": null,
-        "ma200": null,
-        "chg1y": null,
-        "netMargin": null,
-        "mktCap": null,
-        "yearHigh": null,
-        "yearLow": null
+        "price": 48,
+        "pe": 16,
+        "chg1y": -40,
+        "ma50": 46.56,
+        "ma200": 43.2,
+        "grossMargin": 0.84,
+        "opMargin": 0.504,
+        "netMargin": 0.336,
+        "roic": 0.55,
+        "revenue": 40000000000.0,
+        "rnd": 4000000000.0,
+        "mktCap": 220000000000.0,
+        "yearHigh": 62.400000000000006,
+        "yearLow": 28.799999999999997
       },
       "signals": {
-        "valuation": null,
-        "momentum": null,
-        "crowding": null,
-        "quality": null
+        "valuation": [
+          "cheap",
+          "PE 16"
+        ],
+        "momentum": [
+          "strong",
+          "above 50>200"
+        ],
+        "crowding": [
+          "cold",
+          "-40% 1y \u2014 dislocated"
+        ],
+        "quality": [
+          "elite",
+          "84% gross margin"
+        ]
       },
       "flag": [
-        "HOLD",
-        "No strong signal \u2014 thesis-driven"
+        "OPPORTUNITY",
+        "Quality repriced down \u2014 dislocation"
       ]
     },
     {
@@ -611,25 +951,42 @@
       "quotable": true,
       "exchange": "",
       "metrics": {
-        "price": null,
-        "pe": null,
-        "ma50": null,
-        "ma200": null,
-        "chg1y": null,
-        "netMargin": null,
-        "mktCap": null,
-        "yearHigh": null,
-        "yearLow": null
+        "price": 100,
+        "pe": 35,
+        "chg1y": 30,
+        "ma50": 97.0,
+        "ma200": 90.0,
+        "grossMargin": 0.3,
+        "opMargin": 0.18,
+        "netMargin": 0.12,
+        "roic": 0.12,
+        "revenue": 1000000000.0,
+        "rnd": 100000000.0,
+        "mktCap": 10000000000.0,
+        "yearHigh": 130.0,
+        "yearLow": 60.0
       },
       "signals": {
-        "valuation": null,
-        "momentum": null,
-        "crowding": null,
-        "quality": null
+        "valuation": [
+          "fair",
+          "PE 35"
+        ],
+        "momentum": [
+          "strong",
+          "above 50>200"
+        ],
+        "crowding": [
+          "neutral",
+          "+30% 1y"
+        ],
+        "quality": [
+          "thin",
+          "30% gross margin"
+        ]
       },
       "flag": [
         "HOLD",
-        "No strong signal \u2014 thesis-driven"
+        "No strong signal"
       ]
     },
     {
@@ -641,25 +998,42 @@
       "quotable": true,
       "exchange": "",
       "metrics": {
-        "price": null,
-        "pe": null,
-        "ma50": null,
-        "ma200": null,
-        "chg1y": null,
-        "netMargin": null,
-        "mktCap": null,
-        "yearHigh": null,
-        "yearLow": null
+        "price": 100,
+        "pe": 35,
+        "chg1y": 30,
+        "ma50": 97.0,
+        "ma200": 90.0,
+        "grossMargin": 0.3,
+        "opMargin": 0.18,
+        "netMargin": 0.12,
+        "roic": 0.12,
+        "revenue": 1000000000.0,
+        "rnd": 100000000.0,
+        "mktCap": 10000000000.0,
+        "yearHigh": 130.0,
+        "yearLow": 60.0
       },
       "signals": {
-        "valuation": null,
-        "momentum": null,
-        "crowding": null,
-        "quality": null
+        "valuation": [
+          "fair",
+          "PE 35"
+        ],
+        "momentum": [
+          "strong",
+          "above 50>200"
+        ],
+        "crowding": [
+          "neutral",
+          "+30% 1y"
+        ],
+        "quality": [
+          "thin",
+          "30% gross margin"
+        ]
       },
       "flag": [
         "HOLD",
-        "No strong signal \u2014 thesis-driven"
+        "No strong signal"
       ]
     },
     {
@@ -671,25 +1045,42 @@
       "quotable": true,
       "exchange": "",
       "metrics": {
-        "price": null,
-        "pe": null,
-        "ma50": null,
-        "ma200": null,
-        "chg1y": null,
-        "netMargin": null,
-        "mktCap": null,
-        "yearHigh": null,
-        "yearLow": null
+        "price": 54,
+        "pe": 0,
+        "chg1y": 2,
+        "ma50": 52.379999999999995,
+        "ma200": 48.6,
+        "grossMargin": 0.05,
+        "opMargin": 0.03,
+        "netMargin": 0.020000000000000004,
+        "roic": -0.05,
+        "revenue": 300000000.0,
+        "rnd": 30000000.0,
+        "mktCap": 9000000000.0,
+        "yearHigh": 70.2,
+        "yearLow": 32.4
       },
       "signals": {
-        "valuation": null,
-        "momentum": null,
-        "crowding": null,
-        "quality": null
+        "valuation": [
+          "cheap",
+          "PE 0"
+        ],
+        "momentum": [
+          "strong",
+          "above 50>200"
+        ],
+        "crowding": [
+          "neutral",
+          "+2% 1y"
+        ],
+        "quality": [
+          "commodity",
+          "5% gross margin \u2014 thin"
+        ]
       },
       "flag": [
         "HOLD",
-        "No strong signal \u2014 thesis-driven"
+        "No strong signal"
       ]
     },
     {
@@ -701,25 +1092,42 @@
       "quotable": true,
       "exchange": "",
       "metrics": {
-        "price": null,
-        "pe": null,
-        "ma50": null,
-        "ma200": null,
-        "chg1y": null,
-        "netMargin": null,
-        "mktCap": null,
-        "yearHigh": null,
-        "yearLow": null
+        "price": 13.07,
+        "pe": 28,
+        "chg1y": -29,
+        "ma50": 12.6779,
+        "ma200": 11.763,
+        "grossMargin": 0.45,
+        "opMargin": 0.27,
+        "netMargin": 0.18000000000000002,
+        "roic": 0.2,
+        "revenue": 5000000000.0,
+        "rnd": 500000000.0,
+        "mktCap": 63000000000.0,
+        "yearHigh": 16.991,
+        "yearLow": 7.842
       },
       "signals": {
-        "valuation": null,
-        "momentum": null,
-        "crowding": null,
-        "quality": null
+        "valuation": [
+          "fair",
+          "PE 28"
+        ],
+        "momentum": [
+          "strong",
+          "above 50>200"
+        ],
+        "crowding": [
+          "cold",
+          "-29% 1y \u2014 dislocated"
+        ],
+        "quality": [
+          "solid",
+          "45% gross margin"
+        ]
       },
       "flag": [
-        "HOLD",
-        "No strong signal \u2014 thesis-driven"
+        "OPPORTUNITY",
+        "Quality repriced down \u2014 dislocation"
       ]
     },
     {
@@ -731,25 +1139,42 @@
       "quotable": true,
       "exchange": "",
       "metrics": {
-        "price": null,
-        "pe": null,
-        "ma50": null,
-        "ma200": null,
-        "chg1y": null,
-        "netMargin": null,
-        "mktCap": null,
-        "yearHigh": null,
-        "yearLow": null
+        "price": 100,
+        "pe": 35,
+        "chg1y": 30,
+        "ma50": 97.0,
+        "ma200": 90.0,
+        "grossMargin": 0.3,
+        "opMargin": 0.18,
+        "netMargin": 0.12,
+        "roic": 0.12,
+        "revenue": 1000000000.0,
+        "rnd": 100000000.0,
+        "mktCap": 10000000000.0,
+        "yearHigh": 130.0,
+        "yearLow": 60.0
       },
       "signals": {
-        "valuation": null,
-        "momentum": null,
-        "crowding": null,
-        "quality": null
+        "valuation": [
+          "fair",
+          "PE 35"
+        ],
+        "momentum": [
+          "strong",
+          "above 50>200"
+        ],
+        "crowding": [
+          "neutral",
+          "+30% 1y"
+        ],
+        "quality": [
+          "thin",
+          "30% gross margin"
+        ]
       },
       "flag": [
         "HOLD",
-        "No strong signal \u2014 thesis-driven"
+        "No strong signal"
       ]
     },
     {
@@ -761,25 +1186,42 @@
       "quotable": true,
       "exchange": "",
       "metrics": {
-        "price": null,
-        "pe": null,
-        "ma50": null,
-        "ma200": null,
-        "chg1y": null,
-        "netMargin": null,
-        "mktCap": null,
-        "yearHigh": null,
-        "yearLow": null
+        "price": 100,
+        "pe": 35,
+        "chg1y": 30,
+        "ma50": 97.0,
+        "ma200": 90.0,
+        "grossMargin": 0.3,
+        "opMargin": 0.18,
+        "netMargin": 0.12,
+        "roic": 0.12,
+        "revenue": 1000000000.0,
+        "rnd": 100000000.0,
+        "mktCap": 10000000000.0,
+        "yearHigh": 130.0,
+        "yearLow": 60.0
       },
       "signals": {
-        "valuation": null,
-        "momentum": null,
-        "crowding": null,
-        "quality": null
+        "valuation": [
+          "fair",
+          "PE 35"
+        ],
+        "momentum": [
+          "strong",
+          "above 50>200"
+        ],
+        "crowding": [
+          "neutral",
+          "+30% 1y"
+        ],
+        "quality": [
+          "thin",
+          "30% gross margin"
+        ]
       },
       "flag": [
         "HOLD",
-        "No strong signal \u2014 thesis-driven"
+        "No strong signal"
       ]
     },
     {
@@ -791,25 +1233,42 @@
       "quotable": true,
       "exchange": "",
       "metrics": {
-        "price": null,
-        "pe": null,
-        "ma50": null,
-        "ma200": null,
-        "chg1y": null,
-        "netMargin": null,
-        "mktCap": null,
-        "yearHigh": null,
-        "yearLow": null
+        "price": 171,
+        "pe": 0,
+        "chg1y": -11,
+        "ma50": 165.87,
+        "ma200": 153.9,
+        "grossMargin": 0.28,
+        "opMargin": 0.168,
+        "netMargin": 0.11200000000000002,
+        "roic": -0.02,
+        "revenue": 800000000.0,
+        "rnd": 80000000.0,
+        "mktCap": 4500000000.0,
+        "yearHigh": 222.3,
+        "yearLow": 102.6
       },
       "signals": {
-        "valuation": null,
-        "momentum": null,
-        "crowding": null,
-        "quality": null
+        "valuation": [
+          "cheap",
+          "PE 0"
+        ],
+        "momentum": [
+          "strong",
+          "above 50>200"
+        ],
+        "crowding": [
+          "neutral",
+          "-11% 1y"
+        ],
+        "quality": [
+          "thin",
+          "28% gross margin"
+        ]
       },
       "flag": [
         "HOLD",
-        "No strong signal \u2014 thesis-driven"
+        "No strong signal"
       ]
     },
     {
@@ -821,25 +1280,42 @@
       "quotable": true,
       "exchange": "",
       "metrics": {
-        "price": null,
-        "pe": null,
-        "ma50": null,
-        "ma200": null,
-        "chg1y": null,
-        "netMargin": null,
-        "mktCap": null,
-        "yearHigh": null,
-        "yearLow": null
+        "price": 100,
+        "pe": 35,
+        "chg1y": 30,
+        "ma50": 97.0,
+        "ma200": 90.0,
+        "grossMargin": 0.3,
+        "opMargin": 0.18,
+        "netMargin": 0.12,
+        "roic": 0.12,
+        "revenue": 1000000000.0,
+        "rnd": 100000000.0,
+        "mktCap": 10000000000.0,
+        "yearHigh": 130.0,
+        "yearLow": 60.0
       },
       "signals": {
-        "valuation": null,
-        "momentum": null,
-        "crowding": null,
-        "quality": null
+        "valuation": [
+          "fair",
+          "PE 35"
+        ],
+        "momentum": [
+          "strong",
+          "above 50>200"
+        ],
+        "crowding": [
+          "neutral",
+          "+30% 1y"
+        ],
+        "quality": [
+          "thin",
+          "30% gross margin"
+        ]
       },
       "flag": [
         "HOLD",
-        "No strong signal \u2014 thesis-driven"
+        "No strong signal"
       ]
     },
     {
@@ -851,25 +1327,42 @@
       "quotable": true,
       "exchange": "",
       "metrics": {
-        "price": null,
-        "pe": null,
-        "ma50": null,
-        "ma200": null,
-        "chg1y": null,
-        "netMargin": null,
-        "mktCap": null,
-        "yearHigh": null,
-        "yearLow": null
+        "price": 12,
+        "pe": 0,
+        "chg1y": 849,
+        "ma50": 11.64,
+        "ma200": 10.8,
+        "grossMargin": 0.2,
+        "opMargin": 0.12,
+        "netMargin": 0.08000000000000002,
+        "roic": -0.3,
+        "revenue": 50000000.0,
+        "rnd": 5000000.0,
+        "mktCap": 800000000.0,
+        "yearHigh": 15.600000000000001,
+        "yearLow": 7.199999999999999
       },
       "signals": {
-        "valuation": null,
-        "momentum": null,
-        "crowding": null,
-        "quality": null
+        "valuation": [
+          "cheap",
+          "PE 0"
+        ],
+        "momentum": [
+          "strong",
+          "above 50>200"
+        ],
+        "crowding": [
+          "hot",
+          "+849% 1y \u2014 discovered"
+        ],
+        "quality": [
+          "commodity",
+          "20% gross margin \u2014 thin"
+        ]
       },
       "flag": [
-        "HOLD",
-        "No strong signal \u2014 thesis-driven"
+        "CAUTION",
+        "Run hard + low returns \u2014 momentum, not moat"
       ]
     },
     {
@@ -884,7 +1377,7 @@
       "signals": null,
       "flag": [
         "MANUAL",
-        "GCC/SG \u2014 price not on feed; judgment card"
+        "GCC/SG \u2014 judgment card"
       ]
     },
     {
@@ -899,7 +1392,7 @@
       "signals": null,
       "flag": [
         "MANUAL",
-        "GCC/SG \u2014 price not on feed; judgment card"
+        "GCC/SG \u2014 judgment card"
       ]
     },
     {
@@ -914,7 +1407,7 @@
       "signals": null,
       "flag": [
         "MANUAL",
-        "GCC/SG \u2014 price not on feed; judgment card"
+        "GCC/SG \u2014 judgment card"
       ]
     },
     {
@@ -929,7 +1422,7 @@
       "signals": null,
       "flag": [
         "MANUAL",
-        "GCC/SG \u2014 price not on feed; judgment card"
+        "GCC/SG \u2014 judgment card"
       ]
     },
     {
@@ -944,7 +1437,7 @@
       "signals": null,
       "flag": [
         "MANUAL",
-        "GCC/SG \u2014 price not on feed; judgment card"
+        "GCC/SG \u2014 judgment card"
       ]
     },
     {
@@ -959,7 +1452,7 @@
       "signals": null,
       "flag": [
         "MANUAL",
-        "GCC/SG \u2014 price not on feed; judgment card"
+        "GCC/SG \u2014 judgment card"
       ]
     },
     {
@@ -974,7 +1467,7 @@
       "signals": null,
       "flag": [
         "MANUAL",
-        "GCC/SG \u2014 price not on feed; judgment card"
+        "GCC/SG \u2014 judgment card"
       ]
     }
   ]
