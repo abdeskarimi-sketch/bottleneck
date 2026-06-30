@@ -3,161 +3,401 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bottleneck Monitor</title>
+<title>CHOKEPOINT — the moat intelligence terminal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#f5f1e8; --paper-deep:#ece6d8; --ink:#1a1714; --ink-soft:#3d3833;
-    --ink-mute:#7a7066; --rule:#cfc6b5; --rule-faint:#e0d9ca; --oxblood:#7e2017;
-    --gold:#b8902a; --ok:#2e7d52; --bad:#9a3024; --warn:#b07a14;
-    --mono:'SF Mono',ui-monospace,Menlo,monospace;
-    --serif:Georgia,'Times New Roman',serif;
-    --display:'Iowan Old Style',Georgia,serif;
+    --abyss:#050c12; --deep:#091620; --deep2:#0c1f2b; --hull:#173341; --hull-soft:#102530;
+    --ink:#dbe9ef; --ink-soft:#9fb6c0; --mute:#5d7682;
+    --sonar:#34d6cd; --sonar-deep:#1a7d77; --sonar-glow:rgba(52,214,205,.55);
+    --crimson:#ff4d3b; --crimson-glow:rgba(255,77,59,.6);
+    --amber:#f2ac3e; --jade:#46d99a; --gold:#e8c24a;
+    --disp:'Space Grotesk',system-ui,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,monospace;
+    --body:'Inter',system-ui,sans-serif;
   }
   *{box-sizing:border-box}
-  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);line-height:1.5}
-  .wrap{max-width:1100px;margin:0 auto;padding:32px 20px 80px}
-  header{border-bottom:3px double var(--ink);padding-bottom:18px;margin-bottom:8px}
-  .kicker{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--oxblood)}
-  h1{font-family:var(--display);font-size:38px;font-weight:700;margin:6px 0 4px;letter-spacing:-.01em}
-  h1 em{font-style:italic;color:var(--oxblood)}
-  .sub{font-family:var(--mono);font-size:11px;color:var(--ink-mute);letter-spacing:.04em}
-  .meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;font-family:var(--mono);font-size:10.5px;color:var(--ink-mute)}
-  .meta b{color:var(--ink-soft)}
-  .controls{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 8px}
-  .chip{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border:1px solid var(--rule);background:var(--paper);color:var(--ink-soft);cursor:pointer}
-  .chip.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-  .group{margin-top:30px}
-  .group-h{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--oxblood);border-bottom:1px solid var(--rule);padding-bottom:6px;margin-bottom:14px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
-  .card{border:1px solid var(--rule);background:var(--paper);padding:14px 16px;display:flex;flex-direction:column;gap:8px}
-  .card.manual{border-style:dashed;background:transparent}
-  .card-top{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
-  .tk{font-family:var(--mono);font-size:14px;font-weight:700;color:var(--ink)}
-  .nm{font-family:var(--display);font-style:italic;font-size:15px;color:var(--ink-soft)}
-  .layer{font-family:var(--mono);font-size:8.5px;letter-spacing:.05em;color:var(--ink-mute);margin-left:auto;text-transform:uppercase}
-  .price{font-family:var(--mono);font-size:13px;color:var(--ink)}
-  .price .chg{font-size:11px;margin-left:6px}
-  .up{color:var(--ok)} .down{color:var(--bad)}
-  .thesis{font-family:var(--serif);font-size:12px;line-height:1.5;color:var(--ink-soft);border-left:2px solid var(--rule-faint);padding-left:9px}
-  .flag{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.08em;padding:3px 8px;align-self:flex-start}
-  .flag.OPPORTUNITY,.flag.VALUE{background:#e6f5ec;color:var(--ok);border:1px solid var(--ok)}
-  .flag.COMPOUNDING,.flag.HOLD{background:var(--paper-deep);color:var(--ink-soft);border:1px solid var(--rule)}
-  .flag.EXTENDED{background:#fbf6e8;color:var(--warn);border:1px solid var(--gold)}
-  .flag.CAUTION{background:#f7e9e6;color:var(--bad);border:1px solid var(--bad)}
-  .flag.MANUAL{background:transparent;color:var(--ink-mute);border:1px dashed var(--rule)}
-  .flag-note{font-family:var(--serif);font-style:italic;font-size:11px;color:var(--ink-mute);margin-top:-2px}
-  .fps{display:grid;grid-template-columns:1fr 1fr;gap:5px 12px;font-family:var(--mono);font-size:9.5px}
-  .fp{display:flex;justify-content:space-between;gap:6px;border-bottom:1px dotted var(--rule-faint);padding-bottom:3px}
-  .fp .lab{color:var(--ink-mute);text-transform:uppercase;letter-spacing:.04em}
-  .fp .val{color:var(--ink-soft);text-align:right}
-  .fp .val.cheap,.fp .val.elite,.fp .val.strong,.fp .val.cold{color:var(--ok)}
-  .fp .val.rich,.fp .val.loss,.fp .val.weak,.fp .val.hot{color:var(--bad)}
-  .fp .val.fair,.fp .val.solid,.fp .val.mixed,.fp .val.warm,.fp .val.thin{color:var(--warn)}
-  footer{margin-top:48px;border-top:1px solid var(--rule);padding-top:16px;font-family:var(--mono);font-size:10px;color:var(--ink-mute);line-height:1.7}
-  .loading{font-family:var(--mono);font-size:12px;color:var(--ink-mute);padding:40px 0}
-  a{color:var(--oxblood)}
+  html,body{margin:0;background:var(--abyss);color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased}
+  body{
+    background:
+      radial-gradient(1100px 600px at 78% -8%, rgba(52,214,205,.07), transparent 60%),
+      radial-gradient(900px 500px at 8% 105%, rgba(255,77,59,.05), transparent 60%),
+      linear-gradient(180deg,#06121a,#050c12 60%);
+    min-height:100vh;
+  }
+  /* faint sonar grid */
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background-image:linear-gradient(rgba(52,214,205,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(52,214,205,.045) 1px,transparent 1px);
+    background-size:46px 46px;mask:radial-gradient(120% 90% at 50% 30%,#000 40%,transparent 90%);}
+  .wrap{position:relative;z-index:1;max-width:1320px;margin:0 auto;padding:0 22px 90px}
+
+  /* ===== bridge bar ===== */
+  .bridge{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;padding:26px 0 18px;border-bottom:1px solid var(--hull);flex-wrap:wrap}
+  .mark{display:flex;flex-direction:column;gap:6px}
+  .eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.42em;text-transform:uppercase;color:var(--sonar);opacity:.85}
+  h1{font-family:var(--disp);font-weight:700;font-size:clamp(34px,6.4vw,68px);line-height:.92;margin:0;letter-spacing:.02em;
+     background:linear-gradient(180deg,#eafcfb,#7fdcd6 70%,#2f9d97);-webkit-background-clip:text;background-clip:text;color:transparent;
+     text-shadow:0 0 38px rgba(52,214,205,.18)}
+  .sub{font-size:14px;color:var(--ink-soft);max-width:560px;line-height:1.5;margin-top:10px}
+  .status{display:flex;flex-direction:column;align-items:flex-end;gap:8px;font-family:var(--mono);font-size:10.5px;color:var(--mute)}
+  .live{display:flex;align-items:center;gap:8px;color:var(--sonar);letter-spacing:.16em;text-transform:uppercase;font-size:9.5px}
+  .pulse{width:8px;height:8px;border-radius:50%;background:var(--sonar);box-shadow:0 0 0 0 var(--sonar-glow);animation:pulse 2.4s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 var(--sonar-glow)}70%{box-shadow:0 0 0 9px rgba(52,214,205,0)}100%{box-shadow:0 0 0 0 rgba(52,214,205,0)}}
+  .status b{color:var(--ink-soft)}
+
+  /* ===== stage ===== */
+  .stage{display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:22px}
+  @media(max-width:1000px){.stage{grid-template-columns:1fr}}
+  .scope{position:relative;border:1px solid var(--hull);border-radius:14px;overflow:hidden;
+    background:radial-gradient(140% 100% at 50% 0%,#0c2230,#081720 70%);box-shadow:inset 0 0 80px rgba(0,0,0,.5),0 24px 60px rgba(0,0,0,.4)}
+  .scope-head{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--hull-soft);
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+  .scope-head b{color:var(--sonar)}
+  svg{display:block;width:100%;height:auto}
+  .depth-lab{font-family:var(--mono);font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;fill:var(--mute);opacity:.7}
+  .band{fill:rgba(52,214,205,.018)}
+  .band-rule{stroke:var(--hull-soft);stroke-width:1;stroke-dasharray:2 6;opacity:.5}
+
+  /* edges */
+  .edge{fill:none;stroke:var(--sonar-deep);stroke-width:1.3;opacity:.5}
+  .edge-flow{fill:none;stroke:var(--sonar);stroke-width:1.4;stroke-dasharray:2 11;opacity:.7;animation:flow 2.8s linear infinite}
+  .edge-flow.sole{stroke:var(--crimson);stroke-width:2;stroke-dasharray:3 9;opacity:.95;animation-duration:1.25s;filter:drop-shadow(0 0 4px var(--crimson-glow))}
+  @keyframes flow{to{stroke-dashoffset:-130}}
+  .lane-dim{opacity:.06!important}
+  .lane-hot{opacity:1!important;stroke-width:2.6!important}
+
+  /* nodes */
+  .node{cursor:pointer}
+  .halo{opacity:.5;transition:opacity .2s}
+  .node:hover .halo,.node.sel .halo{opacity:.9}
+  .cap{fill:rgba(9,24,33,.92);stroke:var(--hull);stroke-width:1.3;transition:stroke .18s,filter .18s}
+  .node:hover .cap,.node.sel .cap{stroke:var(--sonar);filter:drop-shadow(0 0 7px var(--sonar-glow))}
+  .node.mono .cap{stroke:rgba(255,77,59,.5)}
+  .node.mono:hover .cap,.node.mono.sel .cap{stroke:var(--crimson);filter:drop-shadow(0 0 8px var(--crimson-glow))}
+  .node.dim{opacity:.22;transition:opacity .2s}
+  .tk{font-family:var(--disp);font-weight:700;font-size:12px;fill:var(--ink);text-anchor:middle;dominant-baseline:middle;letter-spacing:.02em}
+  .gm{font-family:var(--mono);font-size:8px;font-weight:600;letter-spacing:.04em;text-anchor:middle;fill:var(--sonar)}
+  .node.mono .gm{fill:var(--crimson)}
+  .sig-dot{stroke:var(--abyss);stroke-width:1.4}
+
+  /* legend */
+  .legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;font-family:var(--mono);font-size:9.5px;color:var(--mute);letter-spacing:.04em}
+  .legend span{display:flex;align-items:center;gap:6px}
+  .lg-line{width:20px;height:0;border-top:2px solid var(--sonar)}
+  .lg-line.sole{border-top:2px solid var(--crimson)}
+  .lg-dot{width:9px;height:9px;border-radius:50%}
+  .lg-halo{width:13px;height:13px;border-radius:50%;background:radial-gradient(circle,var(--sonar) 0%,transparent 70%)}
+
+  /* ===== readout panel ===== */
+  .panel{align-self:start;position:sticky;top:16px;border:1px solid var(--hull);border-radius:14px;
+    background:rgba(10,24,33,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    box-shadow:0 24px 60px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.04);overflow:hidden}
+  .panel-empty{padding:40px 22px;text-align:center;color:var(--mute);font-size:13px;line-height:1.6}
+  .panel-empty .big{font-family:var(--disp);font-size:15px;color:var(--ink-soft);display:block;margin-bottom:8px}
+  .p-head{padding:16px 18px;border-bottom:1px solid var(--hull-soft);background:linear-gradient(180deg,rgba(52,214,205,.06),transparent)}
+  .p-tk{font-family:var(--disp);font-weight:700;font-size:22px;letter-spacing:.01em;color:var(--ink)}
+  .p-nm{font-family:var(--body);font-size:13px;color:var(--ink-soft);margin-top:1px}
+  .p-moat{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--sonar);margin-top:8px}
+  .p-moat.mono{color:var(--crimson)}
+  .p-body{padding:16px 18px}
+
+  /* the headline number */
+  .hero-num{text-align:center;padding:10px 0 16px;border-bottom:1px solid var(--hull-soft);margin-bottom:14px}
+  .hero-num .v{font-family:var(--disp);font-weight:700;font-size:52px;line-height:1;letter-spacing:-.01em;
+    background:linear-gradient(180deg,#eafcfb,#34d6cd);-webkit-background-clip:text;background-clip:text;color:transparent;
+    text-shadow:0 0 30px rgba(52,214,205,.25)}
+  .hero-num .v.bad{background:linear-gradient(180deg,#ffd9d4,#ff4d3b);-webkit-background-clip:text;background-clip:text}
+  .hero-num .k{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-top:6px}
+  .hero-num .n{font-size:11px;font-style:italic;color:var(--ink-soft);margin-top:4px}
+
+  .tan-row{display:grid;grid-template-columns:84px 1fr;gap:10px;padding:8px 0;border-bottom:1px solid rgba(23,51,65,.5);font-size:12px;line-height:1.45}
+  .tan-row:last-child{border-bottom:none}
+  .tan-k{font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);padding-top:2px}
+  .tan-v{color:var(--ink-soft)}
+  .tan-v .em{color:var(--ink);font-weight:500}
+
+  .choke{font-size:12.5px;line-height:1.55;color:var(--ink-soft);font-style:italic;border-left:2px solid var(--sonar-deep);padding-left:11px;margin:14px 0}
+  .row-h{font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:14px 0 7px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{font-family:var(--mono);font-size:10px;padding:4px 9px;border:1px solid var(--hull);border-radius:6px;background:rgba(12,31,43,.6);color:var(--ink-soft);cursor:pointer;transition:all .15s}
+  .chip:hover{border-color:var(--sonar);color:var(--sonar)}
+  .chip.sole{border-color:rgba(255,77,59,.5);color:var(--crimson)}
+  .none{font-family:var(--mono);font-size:10px;color:var(--mute);font-style:italic}
+  .pflag{display:inline-block;font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.08em;padding:4px 9px;border-radius:6px;margin-top:2px}
+  .pflag.OPPORTUNITY,.pflag.VALUE{background:rgba(70,217,154,.12);color:var(--jade);border:1px solid rgba(70,217,154,.4)}
+  .pflag.EXTENDED{background:rgba(242,172,62,.12);color:var(--amber);border:1px solid rgba(242,172,62,.4)}
+  .pflag.CAUTION{background:rgba(255,77,59,.12);color:var(--crimson);border:1px solid rgba(255,77,59,.4)}
+  .pflag.COMPOUNDING,.pflag.HOLD,.pflag.MANUAL{background:rgba(52,214,205,.1);color:var(--sonar);border:1px solid rgba(52,214,205,.3)}
+  .sigs{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;margin-top:10px;font-family:var(--mono);font-size:9.5px}
+  .sig{display:flex;justify-content:space-between;gap:6px;border-bottom:1px dotted rgba(23,51,65,.6);padding-bottom:3px}
+  .sig .l{color:var(--mute);text-transform:uppercase;letter-spacing:.03em}
+  .sig .vv{color:var(--ink-soft);text-align:right}
+  .sig .vv.good{color:var(--jade)}
+
+  /* ===== off-network clusters ===== */
+  .section{margin-top:52px}
+  .sec-h{display:flex;align-items:baseline;gap:14px;border-bottom:1px solid var(--hull);padding-bottom:10px;margin-bottom:6px}
+  .sec-h .n{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--sonar)}
+  .sec-h .t{font-family:var(--disp);font-weight:600;font-size:22px;color:var(--ink)}
+  .sec-sub{font-size:13px;color:var(--ink-soft);max-width:720px;line-height:1.55;margin-bottom:18px}
+  .clusters{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+  .cluster{border:1px solid var(--hull);border-radius:12px;padding:17px 18px;background:linear-gradient(180deg,rgba(12,31,43,.6),rgba(9,22,32,.6));transition:border-color .2s,transform .2s}
+  .cluster:hover{border-color:var(--sonar-deep);transform:translateY(-2px)}
+  .cl-h{font-family:var(--disp);font-weight:600;font-size:18px;color:var(--ink)}
+  .cl-tag{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--sonar);margin:4px 0 12px}
+  .cl-rel{font-family:var(--mono);font-size:11px;color:var(--ink);background:rgba(5,12,18,.6);border:1px solid var(--hull-soft);border-radius:7px;padding:9px 11px;line-height:1.5}
+  .cl-body{font-size:12px;line-height:1.55;color:var(--ink-soft);margin-top:11px}
+  .cl-nodes{display:flex;flex-wrap:wrap;gap:5px;margin-top:11px}
+  .cl-n{font-family:var(--mono);font-size:9.5px;padding:3px 8px;border:1px solid var(--hull);border-radius:5px;background:rgba(5,12,18,.5);color:var(--ink-soft)}
+  .arrow{color:var(--crimson);font-weight:700}
+
+  footer{margin-top:54px;border-top:1px solid var(--hull);padding-top:18px;font-family:var(--mono);font-size:10px;color:var(--mute);line-height:1.8}
+  footer b{color:var(--ink-soft)}
+  a{color:var(--sonar)}
+
+  @media (prefers-reduced-motion: reduce){
+    .edge-flow{animation:none!important;stroke-dasharray:none;opacity:.45}
+    .pulse{animation:none}
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header>
-    <div class="kicker">Hunt Doctrine · Standing Instrument</div>
-    <h1>The <em>Bottleneck</em> Monitor</h1>
-    <div class="sub">Daily fingerprint scan of every bottleneck name · auto-refreshed via GitHub Actions</div>
-    <div class="meta">
-      <span>Updated: <b id="updated">—</b></span>
-      <span>Names: <b id="count">—</b></span>
-      <span>Signals: valuation · momentum · crowding · quality</span>
+  <div class="bridge">
+    <div class="mark">
+      <div class="eyebrow">Hunt Doctrine · Moat Intelligence</div>
+      <h1>CHOKEPOINT</h1>
+      <p class="sub">Where supply constricts and pricing power concentrates. Current flows down the stack; at each <b style="color:var(--crimson)">crimson gate</b> one supplier can shut the lane. Node glow is the live signal; halo size is market cap. Margins refresh twice daily.</p>
     </div>
-  </header>
+    <div class="status">
+      <div class="live"><span class="pulse"></span> live feed</div>
+      <div>SYNC · <b id="updated">—</b></div>
+      <div>NODES · <b id="count">—</b></div>
+    </div>
+  </div>
 
-  <div class="controls" id="filters"></div>
-  <div id="content"><div class="loading">Loading the latest scan…</div></div>
+  <div class="stage">
+    <div class="scope">
+      <div class="scope-head"><span>The AI-compute lane · <b>dependency &amp; flow</b></span><span id="hint">▸ select a chokepoint</span></div>
+      <svg id="map" viewBox="0 0 1000 760" preserveAspectRatio="xMidYMid meet" aria-label="bottleneck flow graph"></svg>
+    </div>
+    <div class="panel" id="panel">
+      <div class="panel-empty"><span class="big">Read the lane.</span>Select any chokepoint to see its market position, the gross margin that proves its pricing power, and what it gates upstream and down.</div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <span><span class="lg-line sole"></span> sole-supplier gate</span>
+    <span><span class="lg-line"></span> ordinary input</span>
+    <span><span class="lg-halo"></span> halo = market cap</span>
+    <span><span class="lg-dot" style="background:var(--jade)"></span> opportunity</span>
+    <span><span class="lg-dot" style="background:var(--amber)"></span> extended</span>
+    <span><span class="lg-dot" style="background:var(--crimson)"></span> caution</span>
+    <span><span class="lg-dot" style="background:var(--sonar)"></span> compounding</span>
+  </div>
+
+  <div class="section">
+    <div class="sec-h"><span class="n">Off-network</span><span class="t">Moat structures beyond the lane</span></div>
+    <div class="sec-sub">Not every bottleneck sits in a supply chain. Some are rivalries where a moat is migrating; some are terminal monopolies that collect rent with no dependency at all — the structural diversification the AI lane can never give you.</div>
+    <div class="clusters" id="clusters"></div>
+  </div>
 
   <footer>
-    <div>The four reads are heuristics off live FMP data — <b>valuation</b> (PE band), <b>momentum</b> (price vs 50/200-day), <b>crowding</b> (1-year change), <b>quality</b> (net margin). The <b>flag</b> combines them into a single "so what." GCC/Singapore names show as judgment cards — their exchanges don't quote cleanly on the feed.</div>
-    <div style="margin-top:8px">Not investment advice. A monitor surfaces signals; the thesis and the decision stay yours. Fingerprints &amp; framework: the Hunt Doctrine.</div>
+    <div>The lane is hand-mapped from how the stack physically works, and stable. <b>Gross margin</b>, revenue and signal colours refresh twice daily from a scheduled job — a deep monopoly carries elite margins because it can charge for the moat; a thin margin (see SMCI) marks an assembler, not a gate. A chokepoint whose signals deteriorate is where a moat may be cracking.</div>
+    <div style="margin-top:8px">Not investment advice. The terminal shows where pricing power sits; the judgment stays yours.</div>
   </footer>
 </div>
 
 <script>
-const LAYER_ORDER = ["Semi · Equipment","Semi · Compute","Semi · Foundry","Semi · IP","Semi · Memory","Semi · Metrology","Semi · Interconnect","Semi · Networking","Semi · Photonics","Cloud","AI Power","Healthcare","Materials","EM Fintech","Aerospace","Logistics","Defense","GCC Infra","GCC Utility","GCC Energy","SG Infra"];
-let DATA = null, activeFilter = "all";
+/* ===================== GRAPH MODEL ===================== */
+const TIERS=[
+  {y:1,label:'EQUIPMENT · IP · MATERIALS'},
+  {y:2,label:'MANUFACTURING'},
+  {y:3,label:'SILICON · MEMORY · INTERCONNECT'},
+  {y:4,label:'SYSTEMS'},
+  {y:5,label:'CLOUD · DEMAND · POWER'},
+];
+const NODES=[
+  {id:'ASML',tier:1,name:'ASML Holding',moat:'monopoly',choke:'Sole maker of EUV lithography on Earth. No ASML, no advanced chip — the deepest single bottleneck in technology.',tan:{pos:'100% of EUV lithography — 0 competitors',scale:'~€28B revenue · multi-year backlog',barrier:'~$200M per High-NA machine; physics no rival has matched in 20+ yrs'}},
+  {id:'AMAT',tier:1,name:'Applied Materials',moat:'oligopoly',choke:'Deposition & etch equipment oligopoly — a required input to every fab.',tan:{pos:'#1 deposition; ~1 of 2 in key steps',scale:'~$27B revenue',barrier:'Recipes locked into each fab; installed-base service moat'}},
+  {id:'LRCX',tier:1,name:'Lam Research',moat:'duopoly',choke:'Etch & deposition duopoly with AMAT.',tan:{pos:'Etch duopoly with AMAT',scale:'~$15B revenue',barrier:'Per-fab recipe lock-in; switching risks yield'}},
+  {id:'KLAC',tier:1,name:'KLA Corp',moat:'monopoly',choke:'~55% of process control & inspection — the yield gatekeeper. The giant of metrology.',tan:{pos:'~55% of process-control & inspection',scale:'~$11B revenue',barrier:'Yield-data moat — hardest tool to displace once qualified'}},
+  {id:'ONTO',tier:1,name:'Onto Innovation',moat:'niche',choke:'Advanced-packaging inspection — gates the HBM/CoWoS back-end that is itself the current bottleneck.',tan:{pos:'Leader in advanced-packaging inspection',scale:'~$1B revenue · net cash',barrier:'Qualified into the HBM/CoWoS lines that are the current gate'}},
+  {id:'CAMT',tier:1,name:'Camtek',moat:'niche',choke:'HBM-packaging inspection — same gate as ONTO, priced for perfection.',tan:{pos:'HBM-packaging inspection specialist',scale:'~$0.4B revenue',barrier:'Narrow but real; priced for perfection (~168x trailing)'}},
+  {id:'ARM',tier:1,name:'Arm Holdings',moat:'monopoly',choke:'The instruction-set architecture inside nearly every chip. A royalty toll across the whole compute layer.',tan:{pos:'Architecture in ~99% of phones · 250B+ chips',scale:'~$4B revenue — pure royalty',barrier:'Switching = re-engineer the entire software stack'}},
+  {id:'MP',tier:1,name:'MP Materials',moat:'input',choke:'Only scaled Western rare-earth & magnet supply — a geopolitical input bottleneck.',tan:{pos:'Only scaled US rare-earth mine + magnet plant',scale:'~$0.3B revenue',barrier:'A decade + permits to replicate; China controls the alternative'}},
+  {id:'TSM',tier:2,name:'TSMC',moat:'monopoly',choke:'The only foundry that can manufacture leading-edge at scale. Every fabless designer depends on it.',tan:{pos:'~64% of all foundry · ~90% of leading-edge',scale:'~$90B revenue',barrier:'$30B+ and years per fab; no one else does leading-edge at volume'}},
+  {id:'NVDA',tier:3,name:'NVIDIA',moat:'platform',choke:'AI compute + the CUDA software lock-in. The platform moat, not just the silicon.',tan:{pos:'~80-90% of AI training accelerators',scale:'~$130B+ revenue · CUDA ~5M devs',barrier:'15+ years of software lock-in; the moat is CUDA, not the chip'}},
+  {id:'AMD',tier:3,name:'AMD',moat:'duopoly',choke:'The #2 GPU/CPU taking AI share — the credible alternative that keeps NVDA honest.',tan:{pos:'#2 GPU/CPU — only credible NVDA alternative',scale:'~$26B revenue',barrier:'x86 license + IP; the duopoly preventing a pure monopoly'}},
+  {id:'MU',tier:3,name:'Micron',moat:'oligopoly',choke:'HBM memory — supply-constrained beyond 2027, feeds every AI GPU. Cyclical: watch the peak.',tan:{pos:'1 of 3 HBM makers · sold out through 2026+',scale:'~$35B+ revenue (cyclical)',barrier:'3-player oligopoly; HBM yield + capex gate entrants'}},
+  {id:'AVGO',tier:3,name:'Broadcom',moat:'oligopoly',choke:'Custom AI silicon + networking — the merchant-ASIC gate for hyperscalers building their own chips.',tan:{pos:'~70%+ of merchant custom-AI-ASIC (XPU)',scale:'~$50B+ revenue',barrier:'Design IP + hyperscaler co-design lock-in'}},
+  {id:'ALAB',tier:3,name:'Astera Labs',moat:'niche',choke:'AI connectivity / interconnect silicon — the plumbing between accelerators.',tan:{pos:'Leader in PCIe/CXL connectivity silicon',scale:'~$0.9B revenue',barrier:'Designed-in per platform; multi-year sockets'}},
+  {id:'CRDO',tier:3,name:'Credo',moat:'niche',choke:'Interconnect (run +294%, insiders selling) — real layer, crowded entry.',tan:{pos:'Active electrical cables for AI racks',scale:'~$0.4B revenue (+200%+)',barrier:'Real layer — but run hard, insiders selling the top'}},
+  {id:'QCOM',tier:3,name:'Qualcomm',moat:'licensing',choke:'Cellular-IP licensing floor + a data-center transition bet.',tan:{pos:'Cellular SEPs — every 5G phone pays',scale:'~$40B revenue',barrier:'Standards-essential patents; licensing is the floor'}},
+  {id:'FN',tier:3,name:'Fabrinet',moat:'niche',choke:'Optical-photonics manufacturing — the contract builder for the optics layer.',tan:{pos:'Trusted optical-photonics contract maker',scale:'~$3B revenue',barrier:'Scale + trust; the optics layer outsources to it'}},
+  {id:'SMCI',tier:4,name:'Supermicro',moat:'thin',choke:'Server integration — an assembler. Thin moat: it builds the racks, it does not own the IP inside them.',tan:{pos:'Server assembler — fast but not unique',scale:'~$22B revenue · ~11% gross margin',barrier:'NONE structural — the thin margin proves it. The control case.'}},
+  {id:'MSFT',tier:5,name:'Microsoft',moat:'demand',choke:'Hyperscaler — Azure capex is a primary demand pool for the whole stack above.',tan:{pos:'Hyperscaler — primary demand pool',scale:'~$80B+ annual capex',barrier:'— demand side; funds the lane above'}},
+  {id:'GOOGL',tier:5,name:'Alphabet',moat:'demand',choke:'Hyperscaler — but builds its own TPUs, partially bypassing NVDA.',tan:{pos:'Hyperscaler + own TPU (partial bypass)',scale:'~$50B+ annual capex',barrier:'— the one demand pool building its own silicon'}},
+  {id:'AMZN',tier:5,name:'Amazon',moat:'demand',choke:'Hyperscaler — AWS demand + in-house Trainium/Inferentia.',tan:{pos:'Hyperscaler — AWS + in-house Trainium',scale:'~$100B annual capex',barrier:'— demand side'}},
+  {id:'ORCL',tier:5,name:'Oracle',moat:'demand',choke:'AI-cloud capacity (OCI) — the demand read-through for AI-capex sentiment.',tan:{pos:'AI-cloud capacity (OCI) — sentiment read',scale:'Large RPO backlog signal',barrier:'— demand-side proxy for AI-capex appetite'}},
+  {id:'CEG',tier:5,name:'Constellation',moat:'power',choke:'Nuclear power — the emerging bottleneck. Datacenters cannot run without it; capacity is contracted years out.',tan:{pos:'Largest US nuclear fleet (~21 GW)',scale:'Powers datacenters · contracted out',barrier:'You cannot build nuclear fast — the emerging hard limit'}},
+];
+const EDGES=[
+  {u:'ASML',d:'TSM',sole:true},{u:'AMAT',d:'TSM'},{u:'LRCX',d:'TSM'},{u:'KLAC',d:'TSM'},{u:'ONTO',d:'TSM'},{u:'CAMT',d:'TSM'},
+  {u:'ARM',d:'NVDA'},{u:'ARM',d:'AMD'},{u:'ARM',d:'QCOM'},
+  {u:'TSM',d:'NVDA',sole:true},{u:'TSM',d:'AMD',sole:true},{u:'TSM',d:'AVGO'},{u:'TSM',d:'QCOM'},
+  {u:'MU',d:'NVDA',sole:true},
+  {u:'AVGO',d:'MSFT'},{u:'ALAB',d:'NVDA'},{u:'CRDO',d:'AMZN'},{u:'FN',d:'AVGO'},
+  {u:'NVDA',d:'SMCI'},{u:'AMD',d:'SMCI'},{u:'SMCI',d:'MSFT'},
+  {u:'NVDA',d:'MSFT',sole:true},{u:'NVDA',d:'GOOGL'},{u:'NVDA',d:'AMZN'},{u:'NVDA',d:'ORCL'},
+  {u:'CEG',d:'MSFT'},{u:'CEG',d:'AMZN'},
+];
+const MOAT_LABEL={monopoly:'monopoly',duopoly:'duopoly',oligopoly:'oligopoly',niche:'niche moat',platform:'platform',licensing:'licensing',input:'input gate',thin:'thin moat',demand:'demand pool',power:'power gate'};
+const FLAG_COLOR={OPPORTUNITY:'#46d99a',VALUE:'#46d99a',COMPOUNDING:'#34d6cd',HOLD:'#34d6cd',EXTENDED:'#f2ac3e',CAUTION:'#ff4d3b',MANUAL:'#5d7682'};
 
-function fmtPrice(m){
-  if(!m || m.price==null) return "—";
-  let s = `$${Number(m.price).toLocaleString(undefined,{maximumFractionDigits:2})}`;
-  if(m.chg1y!=null){
-    const cls = m.chg1y>=0?"up":"down";
-    s += ` <span class="chg ${cls}">${m.chg1y>=0?"+":""}${Number(m.chg1y).toFixed(0)}% 1y</span>`;
-  }
-  return s;
+const CLUSTERS=[
+  {h:'The GLP-1 rivalry',tag:'Healthcare · moat migrating',rel:'NVO <span class="arrow">— share migrating →</span> LLY',body:'A duopoly where the moat is moving. Lilly widening (scale + next-gen orals); Novo the #2 losing share. The arrow is the thesis: own the winner, not the eroding incumbent.',nodes:['LLY','NVO']},
+  {h:'The rare-earth input',tag:'Materials · geopolitical gate',rel:'MP <span class="arrow">→</span> magnets <span class="arrow">→</span> defense · EV · robotics',body:'A pure input chokepoint: the only scaled Western rare-earth/magnet supply, upstream of entire industries forced to onshore. Feeds many chains, belongs to none.',nodes:['MP']},
+  {h:'Defense autonomy',tag:'Defense · policy-driven demand',rel:'US drone mandate <span class="arrow">→</span> AVAV · KTOS · RCAT',body:'A bottleneck created by law: the DJI ban + NDAA force a demand transfer to US makers. AVAV the real business (backlog + litigation flag); KTOS the autonomy play; RCAT the venture lottery.',nodes:['AVAV','KTOS','RCAT']},
+  {h:'The spin-offs',tag:'Special situations · manufactured mispricing',rel:'parent <span class="arrow">→</span> flowback <span class="arrow">→</span> re-rate',body:'Certification & network moats released from conglomerates, sold below value by mechanical flowback. Honeywell Aero (certification annuity), FedEx Freight (LTL network), Solstice (regulatory-moated refrigerants).',nodes:['HONA','FDXF','SOLS']},
+  {h:'Terminal monopolies — pure rent',tag:'GCC · Singapore · no supply chain',rel:'no dependency <span class="arrow">·</span> collects toll <span class="arrow">·</span> uncorrelated',body:'The opposite of a supply chain: government-granted concessions that sit at the end of the line and collect rent. No upstream gate, no cycle to ride — the structural diversifier the AI lane can never give you.',nodes:['Salik','Parkin','DEWA','Empower','ADNOC Drill','SGX']},
+];
+
+/* ===================== LAYOUT ===================== */
+const W=1000,PADX=70,TOP=52,BANDH=140,NW=88,NH=40;
+let LIVE={},selected=null,maxMc=1;
+const tierNodes=t=>NODES.filter(n=>n.tier===t);
+function positions(){
+  const P={};
+  TIERS.forEach(T=>{const ns=tierNodes(T.y),use=W-PADX*2;
+    ns.forEach((n,i)=>{P[n.id]={x:PADX+use*((i+0.5)/ns.length),y:TOP+(T.y-1)*BANDH+BANDH/2};});});
+  return P;
 }
-function fp(label, pair){
-  if(!pair) return "";
-  const [tag, txt] = pair;
-  return `<div class="fp"><span class="lab">${label}</span><span class="val ${tag}">${txt}</span></div>`;
-}
-function card(it){
-  const m = it.metrics, s = it.signals, flag = it.flag || ["HOLD",""];
-  if(!it.quotable){
-    return `<div class="card manual">
-      <div class="card-top"><span class="tk">${it.sym.replace(/\..*$/,'')}</span><span class="nm">${it.name}</span><span class="layer">${it.layer}</span></div>
-      <div class="thesis">${it.thesis}</div>
-      <span class="flag MANUAL">MANUAL · ${it.exchange||'GCC/SG'}</span>
-      <div class="flag-note">Price not on feed — track manually in your broker.</div>
-    </div>`;
-  }
-  return `<div class="card">
-    <div class="card-top"><span class="tk">${it.sym}</span><span class="nm">${it.name}</span><span class="layer">${it.layer}</span></div>
-    <div class="price">${fmtPrice(m)}</div>
-    <div class="thesis">${it.thesis}</div>
-    <span class="flag ${flag[0]}">${flag[0]}</span>
-    <div class="flag-note">${flag[1]||""}</div>
-    <div class="fps">
-      ${fp("Valuation", s&&s.valuation)}
-      ${fp("Momentum", s&&s.momentum)}
-      ${fp("Crowding", s&&s.crowding)}
-      ${fp("Quality", s&&s.quality)}
-    </div>
-  </div>`;
-}
+function path(P,e){const a=P[e.u],b=P[e.d];if(!a||!b)return'';
+  const x1=a.x,y1=a.y+NH/2,x2=b.x,y2=b.y-NH/2,my=(y1+y2)/2;
+  return `M${x1},${y1} C${x1},${my} ${x2},${my} ${x2},${y2}`;}
+function neighbors(id){return{up:EDGES.filter(e=>e.d===id).map(e=>({id:e.u,sole:e.sole})),down:EDGES.filter(e=>e.u===id).map(e=>({id:e.d,sole:e.sole}))};}
+function haloR(id){const mc=LIVE[id]&&LIVE[id].metrics&&LIVE[id].metrics.mktCap;
+  if(!mc)return 30; return 22+40*Math.sqrt(mc/maxMc);}
+
 function render(){
-  const c = document.getElementById("content");
-  if(!DATA){c.innerHTML='<div class="loading">No data yet — the first daily run will populate this.</div>';return;}
-  document.getElementById("updated").textContent = DATA.updated;
-  document.getElementById("count").textContent = DATA.count;
-
-  let items = DATA.items;
-  if(activeFilter==="flagged") items = items.filter(i=>i.flag && ["OPPORTUNITY","VALUE","CAUTION","EXTENDED"].includes(i.flag[0]));
-  else if(activeFilter==="ai") items = items.filter(i=>i.factor==="AI");
-  else if(activeFilter==="div") items = items.filter(i=>i.factor==="DIV"||i.factor==="SPEC");
-  else if(activeFilter==="gcc") items = items.filter(i=>!i.quotable);
-
-  // group by layer
-  const groups = {};
-  items.forEach(i=>{(groups[i.layer]=groups[i.layer]||[]).push(i);});
-  const order = LAYER_ORDER.filter(l=>groups[l]).concat(Object.keys(groups).filter(l=>!LAYER_ORDER.includes(l)));
-  c.innerHTML = order.map(l=>`
-    <div class="group">
-      <div class="group-h">${l} <span style="color:var(--ink-mute);font-weight:400">· ${groups[l].length}</span></div>
-      <div class="grid">${groups[l].map(card).join("")}</div>
-    </div>`).join("") || '<div class="loading">No names match this filter.</div>';
-}
-function buildFilters(){
-  const f = [["all","All"],["flagged","Flagged"],["ai","AI-correlated"],["div","Uncorrelated"],["gcc","GCC / SG"]];
-  document.getElementById("filters").innerHTML = f.map(([k,l])=>
-    `<button class="chip ${k==='all'?'active':''}" data-f="${k}">${l}</button>`).join("");
-  document.querySelectorAll(".chip").forEach(b=>b.onclick=()=>{
-    activeFilter=b.dataset.f;
-    document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("active",x===b));
-    render();
+  const svg=document.getElementById('map'),H=TOP+TIERS.length*BANDH+24;
+  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+  const P=positions();
+  let defs=`<defs>
+    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <radialGradient id="rg-s"><stop offset="0%" stop-color="#34d6cd" stop-opacity=".55"/><stop offset="70%" stop-color="#34d6cd" stop-opacity="0"/></radialGradient>
+    <radialGradient id="rg-c"><stop offset="0%" stop-color="#ff4d3b" stop-opacity=".55"/><stop offset="70%" stop-color="#ff4d3b" stop-opacity="0"/></radialGradient>
+    <radialGradient id="rg-g"><stop offset="0%" stop-color="#46d99a" stop-opacity=".55"/><stop offset="70%" stop-color="#46d99a" stop-opacity="0"/></radialGradient>
+    <radialGradient id="rg-a"><stop offset="0%" stop-color="#f2ac3e" stop-opacity=".55"/><stop offset="70%" stop-color="#f2ac3e" stop-opacity="0"/></radialGradient>
+  </defs>`;
+  let s='';
+  // depth bands
+  TIERS.forEach(T=>{const y=TOP+(T.y-1)*BANDH;
+    if(T.y%2===0)s+=`<rect class="band" x="0" y="${y}" width="${W}" height="${BANDH}"/>`;
+    s+=`<line class="band-rule" x1="0" y1="${y}" x2="${W}" y2="${y}"/>`;
+    s+=`<text class="depth-lab" x="14" y="${y+17}">${T.label}</text>`;});
+  // edges: static base + animated flow
+  EDGES.forEach(e=>{const d=path(P,e);
+    s+=`<path class="edge" data-u="${e.u}" data-d="${e.d}" d="${d}"/>`;
+    s+=`<path class="edge-flow ${e.sole?'sole':''}" data-u="${e.u}" data-d="${e.d}" d="${d}"/>`;});
+  // nodes
+  NODES.forEach(n=>{const p=P[n.id];if(!p)return;
+    const live=LIVE[n.id],flag=live&&live.flag&&live.flag[0];
+    const col=flag?(FLAG_COLOR[flag]||'#34d6cd'):'#34d6cd';
+    const grad=flag==='OPPORTUNITY'||flag==='VALUE'?'rg-g':(flag==='EXTENDED'?'rg-a':(flag==='CAUTION'?'rg-c':'rg-s'));
+    const r=haloR(n.id);
+    const gm=live&&live.metrics&&live.metrics.grossMargin;
+    const gmTxt=(typeof gm==='number'&&gm>0)?`${Math.round(gm*100)}% GM`:'';
+    const x=p.x-NW/2,y=p.y-NH/2,mono=n.moat==='monopoly';
+    s+=`<g class="node ${mono?'mono':''}" data-id="${n.id}" tabindex="0">
+      <circle class="halo" cx="${p.x}" cy="${p.y}" r="${r}" fill="url(#${grad})"/>
+      <rect class="cap" x="${x}" y="${y}" width="${NW}" height="${NH}" rx="9"/>
+      <circle class="sig-dot" cx="${x+NW-11}" cy="${y+11}" r="4" fill="${col}"/>
+      <text class="tk" x="${p.x}" y="${p.y-4}">${n.id}</text>
+      <text class="gm" x="${p.x}" y="${p.y+10}">${gmTxt||MOAT_LABEL[n.moat]}</text>
+    </g>`;});
+  svg.innerHTML=defs+s;
+  svg.querySelectorAll('.node').forEach(g=>{
+    g.addEventListener('click',()=>select(g.dataset.id));
+    g.addEventListener('keypress',e=>{if(e.key==='Enter')select(g.dataset.id);});
+    g.addEventListener('mouseenter',()=>lane(g.dataset.id));
+    g.addEventListener('mouseleave',()=>{selected?lane(selected):clearLane();});
   });
 }
-fetch("data.json?_="+Date.now())
-  .then(r=>r.ok?r.json():Promise.reject())
-  .then(d=>{DATA=d;buildFilters();render();})
-  .catch(()=>{document.getElementById("content").innerHTML='<div class="loading">data.json not found yet. Run the Action once (Actions tab → Run workflow), then refresh.</div>';buildFilters();});
+function lane(id){
+  const conn=new Set([id]);
+  EDGES.forEach(e=>{if(e.u===id)conn.add(e.d);if(e.d===id)conn.add(e.u);});
+  document.querySelectorAll('.node').forEach(g=>g.classList.toggle('dim',!conn.has(g.dataset.id)));
+  document.querySelectorAll('.edge,.edge-flow').forEach(p=>{
+    const on=p.dataset.u===id||p.dataset.d===id;
+    p.classList.toggle('lane-hot',on);p.classList.toggle('lane-dim',!on);});
+}
+function clearLane(){
+  document.querySelectorAll('.node').forEach(g=>g.classList.remove('dim'));
+  document.querySelectorAll('.edge,.edge-flow').forEach(p=>p.classList.remove('lane-hot','lane-dim'));
+}
+function select(id){selected=id;
+  document.querySelectorAll('.node').forEach(g=>g.classList.toggle('sel',g.dataset.id===id));
+  lane(id);drawPanel(id);
+  document.getElementById('hint').textContent='▸ '+id;
+}
+function chip(id,sole){const ex=NODES.find(n=>n.id===id);
+  return `<span class="chip ${sole?'sole':''}" ${ex?`data-go="${id}"`:''}>${id}${sole?' ◆':''}</span>`;}
+function drawPanel(id){
+  const n=NODES.find(x=>x.id===id);if(!n)return;
+  const {up,down}=neighbors(id),live=LIVE[id],m=live&&live.metrics,sig=live&&live.signals,t=n.tan||{};
+  const fmtB=v=>typeof v==='number'?(Math.abs(v)>=1e9?`$${(v/1e9).toFixed(1)}B`:(Math.abs(v)>=1e6?`$${(v/1e6).toFixed(0)}M`:`$${v.toFixed(0)}`)):'—';
+  const pct=v=>typeof v==='number'?`${(v*100).toFixed(0)}%`:'—';
+  const gm=m&&m.grossMargin,hasGm=typeof gm==='number'&&gm>0;
+  const gmCls=hasGm?(gm>0.6?'':'')+(gm<0.25?'bad':''):'';
+  const gNote=hasGm?(gm>0.6?'elite — it charges for the moat':(gm>0.4?'solid pricing power':'thin — commodity-like')):'live on next refresh';
+  const fmtSig=(l,p)=>p?`<div class="sig"><span class="l">${l}</span><span class="vv ${['cheap','elite','strong','cold'].includes(p[0])?'good':''}">${p[1]}</span></div>`:'';
+  document.getElementById('panel').innerHTML=`
+    <div class="p-head">
+      <div class="p-tk">${n.id}</div>
+      <div class="p-nm">${n.name}</div>
+      <div class="p-moat ${n.moat==='monopoly'?'mono':''}">${MOAT_LABEL[n.moat]}</div>
+    </div>
+    <div class="p-body">
+      <div class="hero-num">
+        <div class="v ${hasGm&&gm<0.25?'bad':''}">${hasGm?pct(gm):'—'}</div>
+        <div class="k">gross margin · pricing power</div>
+        <div class="n">${gNote}</div>
+      </div>
+      <div class="tan-row"><span class="tan-k">Position</span><span class="tan-v em">${t.pos||'—'}</span></div>
+      <div class="tan-row"><span class="tan-k">Scale</span><span class="tan-v">${m&&m.revenue?fmtB(m.revenue)+' revenue':(t.scale||'—')}</span></div>
+      <div class="tan-row"><span class="tan-k">Barrier</span><span class="tan-v">${t.barrier||'—'}</span></div>
+      ${m&&typeof m.roic==='number'?`<div class="tan-row"><span class="tan-k">ROIC</span><span class="tan-v">${pct(m.roic)}${m.roic>0.15?' · above cost of capital':''}</span></div>`:''}
+      ${m&&typeof m.mktCap==='number'?`<div class="tan-row"><span class="tan-k">Mkt cap</span><span class="tan-v">${fmtB(m.mktCap)}</span></div>`:''}
+      <div class="choke">${n.choke}</div>
+      <div class="row-h">Depends on ${up.some(u=>u.sole)?'· ◆ sole supplier':''}</div>
+      <div class="chips">${up.length?up.map(u=>chip(u.id,u.sole)).join(''):'<span class="none">sits at the source — nothing upstream.</span>'}</div>
+      <div class="row-h">Gates downstream</div>
+      <div class="chips">${down.length?down.map(d=>chip(d.id,d.sole)).join(''):'<span class="none">terminal demand — the lane ends here.</span>'}</div>
+      ${live&&live.flag?`<div class="row-h">Live signal</div><span class="pflag ${live.flag[0]}">${live.flag[0]}</span> <span style="font-size:11px;font-style:italic;color:var(--mute)">${live.flag[1]||''}</span>`:''}
+      ${sig?`<div class="sigs">${fmtSig('Valuation',sig.valuation)}${fmtSig('Momentum',sig.momentum)}${fmtSig('Crowding',sig.crowding)}${fmtSig('Pricing',sig.quality)}</div>`:''}
+    </div>`;
+  document.querySelectorAll('#panel [data-go]').forEach(c=>c.addEventListener('click',()=>select(c.dataset.go)));
+}
+function renderClusters(){
+  document.getElementById('clusters').innerHTML=CLUSTERS.map(c=>`
+    <div class="cluster"><div class="cl-h">${c.h}</div><div class="cl-tag">${c.tag}</div>
+      <div class="cl-rel">${c.rel}</div><div class="cl-body">${c.body}</div>
+      <div class="cl-nodes">${c.nodes.map(x=>`<span class="cl-n">${x}</span>`).join('')}</div></div>`).join('');
+}
+
+/* ===================== LIVE DATA ===================== */
+fetch('data.json?_='+Date.now()).then(r=>r.ok?r.json():Promise.reject()).then(d=>{
+  document.getElementById('updated').textContent=d.updated;
+  document.getElementById('count').textContent=NODES.length+' mapped / '+d.count+' scanned';
+  (d.items||[]).forEach(it=>{LIVE[it.sym]={flag:it.flag,signals:it.signals,metrics:it.metrics};});
+  maxMc=Math.max(1,...Object.values(LIVE).map(v=>v.metrics&&v.metrics.mktCap||0));
+  render();
+}).catch(()=>{document.getElementById('updated').textContent='structure only — no feed yet';render();});
+renderClusters();
 </script>
 </body>
 </html>
