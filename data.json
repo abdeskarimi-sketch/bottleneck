@@ -1,0 +1,981 @@
+{
+  "updated": "2026-06-30 07:31 UTC",
+  "count": 36,
+  "items": [
+    {
+      "sym": "ASML",
+      "name": "ASML Holding",
+      "thesis": "Lithography monopoly \u2014 sole EUV maker",
+      "layer": "Semi \u00b7 Equipment",
+      "factor": "AI",
+      "quotable": true,
+      "exchange": "",
+      "metrics": {
+        "price": null,
+        "pe": null,
+        "ma50": null,
+        "ma200": null,
+        "chg1y": null,
+        "netMargin": null,
+        "mktCap": null,
+        "yearHigh": null,
+        "yearLow": null
+      },
+      "signals": {
+        "valuation": null,
+        "momentum": null,
+        "crowding": null,
+        "quality": null
+      },
+      "flag": [
+        "HOLD",
+        "No strong signal \u2014 thesis-driven"
+      ]
+    },
+    {
+      "sym": "NVDA",
+      "name": "NVIDIA",
+      "thesis": "AI compute platform + CUDA lock-in",
+      "layer": "Semi \u00b7 Compute",
+      "factor": "AI",
+      "quotable": true,
+      "exchange": "",
+      "metrics": {
+        "price": null,
+        "pe": null,
+        "ma50": null,
+        "ma200": null,
+        "chg1y": null,
+        "netMargin": null,
+        "mktCap": null,
+        "yearHigh": null,
+        "yearLow": null
+      },
+      "signals": {
+        "valuation": null,
+        "momentum": null,
+        "crowding": null,
+        "quality": null
+      },
+      "flag": [
+        "HOLD",
+        "No strong signal \u2014 thesis-driven"
+      ]
+    },
+    {
+      "sym": "TSM",
+      "name": "TSMC",
+      "thesis": "Leading-edge foundry monopoly",
+      "layer": "Semi \u00b7 Foundry",
+      "factor": "AI",
+      "quotable": true,
+      "exchange": "",
+      "metrics": {
+        "price": null,
+        "pe": null,
+        "ma50": null,
+        "ma200": null,
+        "chg1y": null,
+        "netMargin": null,
+        "mktCap": null,
+        "yearHigh": null,
+        "yearLow": null
+      },
+      "signals": {
+        "valuation": null,
+        "momentum": null,
+        "crowding": null,
+        "quality": null
+      },
+      "flag": [
+        "HOLD",
+        "No strong signal \u2014 thesis-driven"
+      ]
+    },
+    {
+      "sym": "ARM",
+      "name": "Arm Holdings",
+      "thesis": "Architecture IP / royalty annuity",
+      "layer": "Semi \u00b7 IP",
+      "factor": "AI",
+      "quotable": true,
+      "exchange": "",
+      "metrics": {
+        "price": null,
+        "pe": null,
+        "ma50": null,
+        "ma200": null,
+        "chg1y": null,
+        "netMargin": null,
+        "mktCap": null,
+        "yearHigh": null,
+        "yearLow": null
+      },
+      "signals": {
+        "valuation": null,
+        "momentum": null,
+        "crowding": null,
+        "quality": null
+      },
+      "flag": [
+        "HOLD",
+        "No strong signal \u2014 thesis-driven"
+      ]
+    },
+    {
+      "sym": "AMD",
+      "name": "Advanced Micro",
+      "thesis": "GPU/CPU challenger, AI accelerators",
+      "layer": "Semi \u00b7 Compute",
+      "factor": "AI",
+      "quotable": true,
+      "exchange": "",
+      "metrics": {
+        "price": null,
+        "pe": null,
+        "ma50": null,
+        "ma200": null,
+        "chg1y": null,
+        "netMargin": null,
+        "mktCap": null,
+        "yearHigh": null,
+        "yearLow": null
+      },
+      "signals": {
+        "valuation": null,
+        "momentum": null,
+        "crowding": null,
+        "quality": null
+      },
+      "flag": [
+        "HOLD",
+        "No strong signal \u2014 thesis-driven"
+      ]
+    },
+    {
+      "sym": "AVGO",
+      "name": "Broadcom",
+      "thesis": "Custom silicon + networking moat",
+      "layer": "Semi \u00b7 Networking",
+      "factor": "AI",
+      "quotable": true,
+      "exchange": "",
+      "metrics": {
+        "price": null,
+        "pe": null,
+        "ma50": null,
+        "ma200": null,
+        "chg1y": null,
+        "netMargin": null,
+        "mktCap": null,
+        "yearHigh": null,
+        "yearLow": null
+      },
+      "signals": {
+        "valuation": null,
+        "momentum": null,
+        "crowding": null,
+        "quality": null
+      },
+      "flag": [
+        "HOLD",
+        "No strong signal \u2014 thesis-driven"
+      ]
+    },
+    {
+      "sym": "AMAT",
+      "name": "Applied Materials",
+      "thesis": "Deposition/etch equipment oligopoly",
+      "layer": "Semi \u00b7 Equipment",
+      "factor": "AI",
+      "quotable": true,
+      "exchange": "",
+      "metrics": {
+        "price": null,
+        "pe": null,
+        "ma50": null,
+        "ma200": null,
+        "chg1y": null,
+        "netMargin": null,
+        "mktCap": null,
+        "yearHigh": null,
+        "yearLow": null
+      },
+      "signals": {
+        "valuation": null,
+        "momentum": null,
+        "crowding": null,
+        "quality": null
+      },
+      "flag": [
+        "HOLD",
+        "No strong signal \u2014 thesis-driven"
+      ]
+    },
+    {
+      "sym": "LRCX",
+      "name": "Lam Research",
+      "thesis": "Etch & deposition duopoly",
+      "layer": "Semi \u00b7 Equipment",
+      "factor": "AI",
+      "quotable": true,
+      "exchange": "",
+      "metrics": {
+        "price": null,
+        "pe": null,
+        "ma50": null,
+        "ma200": null,
+        "chg1y": null,
+        "netMargin": null,
+        "mktCap": null,
+        "yearHigh": null,
+        "yearLow": null
+      },
+      "signals": {
+        "valuation": null,
+        "momentum": null,
+        "crowding": null,
+        "quality": null
+      },
+      "flag": [
+        "HOLD",
+        "No strong signal \u2014 thesis-driven"
+      ]
+    },
+    {
+      "sym": "KLAC",
+      "name": "KLA Corp",
+      "thesis": "Process control near-monopoly (the giant)",
+      "layer": "Semi \u00b7 Metrology",
+      "factor": "AI",
+      "quotable": true,
+      "exchange": "",
+      "metrics": {
+        "price": null,
+        "pe": null,
+        "ma50": null,
+        "ma200": null,
+        "chg1y": null,
+        "netMargin": null,
+        "mktCap": null,
+        "yearHigh": null,
+        "yearLow": null
+      },
+      "signals": {
+        "valuation": null,
+        "momentum": null,
+        "crowding": null,
+        "quality": null
+      },
+      "flag": [
+        "HOLD",
+        "No strong signal \u2014 thesis-driven"
+      ]
+    },
+    {
+      "sym": "ONTO",
+      "name": "Onto Innovation",
+      "thesis": "Advanced-packaging inspection \u2014 the differentiated one",
+      "layer": "Semi \u00b7 Metrology",
+      "factor": "AI",
+      "quotable": true,
+      "exchange": "",
+      "metrics": {
+        "price": null,
+        "pe": null,
+        "ma50": null,
+        "ma200": null,
+        "chg1y": null,
+        "netMargin": null,
+        "mktCap": null,
+        "yearHigh": null,
+        "yearLow": null
+      },
+      "signals": {
+        "valuation": null,
+        "momentum": null,
+        "crowding": null,
+        "quality": null
+      },
+      "flag": [
+        "HOLD",
+        "No strong signal \u2014 thesis-driven"
+      ]
+    },
+    {
+      "sym": "CAMT",
+      "name": "Camtek",
+      "thesis": "HBM-packaging inspection (priced-for-perfection)",
+      "layer": "Semi \u00b7 Metrology",
+      "factor": "AI",
+      "quotable": true,
+      "exchange": "",
+      "metrics": {
+        "price": null,
+        "pe": null,
+        "ma50": null,
+        "ma200": null,
+        "chg1y": null,
+        "netMargin": null,
+        "mktCap": null,
+        "yearHigh": null,
+        "yearLow": null
+      },
+      "signals": {
+        "valuation": null,
+        "momentum": null,
+        "crowding": null,
+        "quality": null
+      },
+      "flag": [
+        "HOLD",
+        "No strong signal \u2014 thesis-driven"
+      ]
+    },
+    {
+      "sym": "ALAB",
+      "name": "Astera Labs",
+      "thesis": "AI interconnect / connectivity silicon",
+      "layer": "Semi \u00b7 Interconnect",
+      "factor": "AI",
+      "quotable": true,
+      "exchange": "",
+      "metrics": {
+        "price": null,
+        "pe": null,
+        "ma50": null,
+        "ma200": null,
+        "chg1y": null,
+        "netMargin": null,
+        "mktCap": null,
+        "yearHigh": null,
+        "yearLow": null
+      },
+      "signals": {
+        "valuation": null,
+        "momentum": null,
+        "crowding": null,
+        "quality": null
+      },
+      "flag": [
+        "HOLD",
+        "No strong signal \u2014 thesis-driven"
+      ]
+    },
+    {
+      "sym": "CRDO",
+      "name": "Credo Technology",
+      "thesis": "AI interconnect (run +294%, insider-sold)",
+      "layer": "Semi \u00b7 Interconnect",
+      "factor": "AI",
+      "quotable": true,
+      "exchange": "",
+      "metrics": {
+        "price": null,
+        "pe": null,
+        "ma50": null,
+        "ma200": null,
+        "chg1y": null,
+        "netMargin": null,
+        "mktCap": null,
+        "yearHigh": null,
+        "yearLow": null
+      },
+      "signals": {
+        "valuation": null,
+        "momentum": null,
+        "crowding": null,
+        "quality": null
+      },
+      "flag": [
+        "HOLD",
+        "No strong signal \u2014 thesis-driven"
+      ]
+    },
+    {
+      "sym": "MU",
+      "name": "Micron",
+      "thesis": "Memory/HBM \u2014 CYCLICAL, watch the peak",
+      "layer": "Semi \u00b7 Memory",
+      "factor": "AI",
+      "quotable": true,
+      "exchange": "",
+      "metrics": {
+        "price": null,
+        "pe": null,
+        "ma50": null,
+        "ma200": null,
+        "chg1y": null,
+        "netMargin": null,
+        "mktCap": null,
+        "yearHigh": null,
+        "yearLow": null
+      },
+      "signals": {
+        "valuation": null,
+        "momentum": null,
+        "crowding": null,
+        "quality": null
+      },
+      "flag": [
+        "HOLD",
+        "No strong signal \u2014 thesis-driven"
+      ]
+    },
+    {
+      "sym": "QCOM",
+      "name": "Qualcomm",
+      "thesis": "Licensing floor + data-center transition bet",
+      "layer": "Semi \u00b7 IP",
+      "factor": "AI",
+      "quotable": true,
+      "exchange": "",
+      "metrics": {
+        "price": null,
+        "pe": null,
+        "ma50": null,
+        "ma200": null,
+        "chg1y": null,
+        "netMargin": null,
+        "mktCap": null,
+        "yearHigh": null,
+        "yearLow": null
+      },
+      "signals": {
+        "valuation": null,
+        "momentum": null,
+        "crowding": null,
+        "quality": null
+      },
+      "flag": [
+        "HOLD",
+        "No strong signal \u2014 thesis-driven"
+      ]
+    },
+    {
+      "sym": "FN",
+      "name": "Fabrinet",
+      "thesis": "Optical photonics manufacturing",
+      "layer": "Semi \u00b7 Photonics",
+      "factor": "AI",
+      "quotable": true,
+      "exchange": "",
+      "metrics": {
+        "price": null,
+        "pe": null,
+        "ma50": null,
+        "ma200": null,
+        "chg1y": null,
+        "netMargin": null,
+        "mktCap": null,
+        "yearHigh": null,
+        "yearLow": null
+      },
+      "signals": {
+        "valuation": null,
+        "momentum": null,
+        "crowding": null,
+        "quality": null
+      },
+      "flag": [
+        "HOLD",
+        "No strong signal \u2014 thesis-driven"
+      ]
+    },
+    {
+      "sym": "ORCL",
+      "name": "Oracle",
+      "thesis": "AI-cloud capacity / OCI",
+      "layer": "Cloud",
+      "factor": "AI",
+      "quotable": true,
+      "exchange": "",
+      "metrics": {
+        "price": null,
+        "pe": null,
+        "ma50": null,
+        "ma200": null,
+        "chg1y": null,
+        "netMargin": null,
+        "mktCap": null,
+        "yearHigh": null,
+        "yearLow": null
+      },
+      "signals": {
+        "valuation": null,
+        "momentum": null,
+        "crowding": null,
+        "quality": null
+      },
+      "flag": [
+        "HOLD",
+        "No strong signal \u2014 thesis-driven"
+      ]
+    },
+    {
+      "sym": "CEG",
+      "name": "Constellation Energy",
+      "thesis": "Nuclear power for AI datacenters",
+      "layer": "AI Power",
+      "factor": "AI",
+      "quotable": true,
+      "exchange": "",
+      "metrics": {
+        "price": null,
+        "pe": null,
+        "ma50": null,
+        "ma200": null,
+        "chg1y": null,
+        "netMargin": null,
+        "mktCap": null,
+        "yearHigh": null,
+        "yearLow": null
+      },
+      "signals": {
+        "valuation": null,
+        "momentum": null,
+        "crowding": null,
+        "quality": null
+      },
+      "flag": [
+        "HOLD",
+        "No strong signal \u2014 thesis-driven"
+      ]
+    },
+    {
+      "sym": "LLY",
+      "name": "Eli Lilly",
+      "thesis": "Obesity/GLP-1 duopoly \u2014 widening moat",
+      "layer": "Healthcare",
+      "factor": "DIV",
+      "quotable": true,
+      "exchange": "",
+      "metrics": {
+        "price": null,
+        "pe": null,
+        "ma50": null,
+        "ma200": null,
+        "chg1y": null,
+        "netMargin": null,
+        "mktCap": null,
+        "yearHigh": null,
+        "yearLow": null
+      },
+      "signals": {
+        "valuation": null,
+        "momentum": null,
+        "crowding": null,
+        "quality": null
+      },
+      "flag": [
+        "HOLD",
+        "No strong signal \u2014 thesis-driven"
+      ]
+    },
+    {
+      "sym": "NVO",
+      "name": "Novo Nordisk",
+      "thesis": "GLP-1 #2 \u2014 MOAT-DECAY FLAG (losing to LLY)",
+      "layer": "Healthcare",
+      "factor": "DIV",
+      "quotable": true,
+      "exchange": "",
+      "metrics": {
+        "price": null,
+        "pe": null,
+        "ma50": null,
+        "ma200": null,
+        "chg1y": null,
+        "netMargin": null,
+        "mktCap": null,
+        "yearHigh": null,
+        "yearLow": null
+      },
+      "signals": {
+        "valuation": null,
+        "momentum": null,
+        "crowding": null,
+        "quality": null
+      },
+      "flag": [
+        "HOLD",
+        "No strong signal \u2014 thesis-driven"
+      ]
+    },
+    {
+      "sym": "UNH",
+      "name": "UnitedHealth",
+      "thesis": "Managed-care scale",
+      "layer": "Healthcare",
+      "factor": "DIV",
+      "quotable": true,
+      "exchange": "",
+      "metrics": {
+        "price": null,
+        "pe": null,
+        "ma50": null,
+        "ma200": null,
+        "chg1y": null,
+        "netMargin": null,
+        "mktCap": null,
+        "yearHigh": null,
+        "yearLow": null
+      },
+      "signals": {
+        "valuation": null,
+        "momentum": null,
+        "crowding": null,
+        "quality": null
+      },
+      "flag": [
+        "HOLD",
+        "No strong signal \u2014 thesis-driven"
+      ]
+    },
+    {
+      "sym": "BMY",
+      "name": "Bristol Myers",
+      "thesis": "Pharma income",
+      "layer": "Healthcare",
+      "factor": "DIV",
+      "quotable": true,
+      "exchange": "",
+      "metrics": {
+        "price": null,
+        "pe": null,
+        "ma50": null,
+        "ma200": null,
+        "chg1y": null,
+        "netMargin": null,
+        "mktCap": null,
+        "yearHigh": null,
+        "yearLow": null
+      },
+      "signals": {
+        "valuation": null,
+        "momentum": null,
+        "crowding": null,
+        "quality": null
+      },
+      "flag": [
+        "HOLD",
+        "No strong signal \u2014 thesis-driven"
+      ]
+    },
+    {
+      "sym": "MP",
+      "name": "MP Materials",
+      "thesis": "Rare-earth bottleneck \u2014 only scaled US supply",
+      "layer": "Materials",
+      "factor": "DIV",
+      "quotable": true,
+      "exchange": "",
+      "metrics": {
+        "price": null,
+        "pe": null,
+        "ma50": null,
+        "ma200": null,
+        "chg1y": null,
+        "netMargin": null,
+        "mktCap": null,
+        "yearHigh": null,
+        "yearLow": null
+      },
+      "signals": {
+        "valuation": null,
+        "momentum": null,
+        "crowding": null,
+        "quality": null
+      },
+      "flag": [
+        "HOLD",
+        "No strong signal \u2014 thesis-driven"
+      ]
+    },
+    {
+      "sym": "NU",
+      "name": "Nu Holdings",
+      "thesis": "LatAm fintech \u2014 most uncorrelated; review on credit",
+      "layer": "EM Fintech",
+      "factor": "DIV",
+      "quotable": true,
+      "exchange": "",
+      "metrics": {
+        "price": null,
+        "pe": null,
+        "ma50": null,
+        "ma200": null,
+        "chg1y": null,
+        "netMargin": null,
+        "mktCap": null,
+        "yearHigh": null,
+        "yearLow": null
+      },
+      "signals": {
+        "valuation": null,
+        "momentum": null,
+        "crowding": null,
+        "quality": null
+      },
+      "flag": [
+        "HOLD",
+        "No strong signal \u2014 thesis-driven"
+      ]
+    },
+    {
+      "sym": "HON",
+      "name": "Honeywell (pre-spin ref)",
+      "thesis": "Aerospace cert moat \u2014 track HONA post-spin",
+      "layer": "Aerospace",
+      "factor": "DIV",
+      "quotable": true,
+      "exchange": "",
+      "metrics": {
+        "price": null,
+        "pe": null,
+        "ma50": null,
+        "ma200": null,
+        "chg1y": null,
+        "netMargin": null,
+        "mktCap": null,
+        "yearHigh": null,
+        "yearLow": null
+      },
+      "signals": {
+        "valuation": null,
+        "momentum": null,
+        "crowding": null,
+        "quality": null
+      },
+      "flag": [
+        "HOLD",
+        "No strong signal \u2014 thesis-driven"
+      ]
+    },
+    {
+      "sym": "FDXF",
+      "name": "FedEx Freight",
+      "thesis": "LTL network density bottleneck (spinoff)",
+      "layer": "Logistics",
+      "factor": "DIV",
+      "quotable": true,
+      "exchange": "",
+      "metrics": {
+        "price": null,
+        "pe": null,
+        "ma50": null,
+        "ma200": null,
+        "chg1y": null,
+        "netMargin": null,
+        "mktCap": null,
+        "yearHigh": null,
+        "yearLow": null
+      },
+      "signals": {
+        "valuation": null,
+        "momentum": null,
+        "crowding": null,
+        "quality": null
+      },
+      "flag": [
+        "HOLD",
+        "No strong signal \u2014 thesis-driven"
+      ]
+    },
+    {
+      "sym": "AVAV",
+      "name": "AeroVironment",
+      "thesis": "Defense drones \u2014 backlog + litigation flag",
+      "layer": "Defense",
+      "factor": "DIV",
+      "quotable": true,
+      "exchange": "",
+      "metrics": {
+        "price": null,
+        "pe": null,
+        "ma50": null,
+        "ma200": null,
+        "chg1y": null,
+        "netMargin": null,
+        "mktCap": null,
+        "yearHigh": null,
+        "yearLow": null
+      },
+      "signals": {
+        "valuation": null,
+        "momentum": null,
+        "crowding": null,
+        "quality": null
+      },
+      "flag": [
+        "HOLD",
+        "No strong signal \u2014 thesis-driven"
+      ]
+    },
+    {
+      "sym": "KTOS",
+      "name": "Kratos Defense",
+      "thesis": "Autonomous wingman / counter-UAS",
+      "layer": "Defense",
+      "factor": "DIV",
+      "quotable": true,
+      "exchange": "",
+      "metrics": {
+        "price": null,
+        "pe": null,
+        "ma50": null,
+        "ma200": null,
+        "chg1y": null,
+        "netMargin": null,
+        "mktCap": null,
+        "yearHigh": null,
+        "yearLow": null
+      },
+      "signals": {
+        "valuation": null,
+        "momentum": null,
+        "crowding": null,
+        "quality": null
+      },
+      "flag": [
+        "HOLD",
+        "No strong signal \u2014 thesis-driven"
+      ]
+    },
+    {
+      "sym": "RCAT",
+      "name": "Red Cat",
+      "thesis": "Army SRR drones \u2014 venture/momentum",
+      "layer": "Defense",
+      "factor": "SPEC",
+      "quotable": true,
+      "exchange": "",
+      "metrics": {
+        "price": null,
+        "pe": null,
+        "ma50": null,
+        "ma200": null,
+        "chg1y": null,
+        "netMargin": null,
+        "mktCap": null,
+        "yearHigh": null,
+        "yearLow": null
+      },
+      "signals": {
+        "valuation": null,
+        "momentum": null,
+        "crowding": null,
+        "quality": null
+      },
+      "flag": [
+        "HOLD",
+        "No strong signal \u2014 thesis-driven"
+      ]
+    },
+    {
+      "sym": "SALIK.AE",
+      "name": "Salik (DFM)",
+      "thesis": "Dubai toll monopoly \u2014 tax-free, USD-pegged",
+      "layer": "GCC Infra",
+      "factor": "DIV",
+      "quotable": false,
+      "exchange": "DFM",
+      "metrics": null,
+      "signals": null,
+      "flag": [
+        "MANUAL",
+        "GCC/SG \u2014 price not on feed; judgment card"
+      ]
+    },
+    {
+      "sym": "PARKIN.AE",
+      "name": "Parkin (DFM)",
+      "thesis": "Dubai parking monopoly",
+      "layer": "GCC Infra",
+      "factor": "DIV",
+      "quotable": false,
+      "exchange": "DFM",
+      "metrics": null,
+      "signals": null,
+      "flag": [
+        "MANUAL",
+        "GCC/SG \u2014 price not on feed; judgment card"
+      ]
+    },
+    {
+      "sym": "DEWA.AE",
+      "name": "DEWA (DFM)",
+      "thesis": "Water/power regulated monopoly",
+      "layer": "GCC Utility",
+      "factor": "DIV",
+      "quotable": false,
+      "exchange": "DFM",
+      "metrics": null,
+      "signals": null,
+      "flag": [
+        "MANUAL",
+        "GCC/SG \u2014 price not on feed; judgment card"
+      ]
+    },
+    {
+      "sym": "EMPOWER.AE",
+      "name": "Empower (DFM)",
+      "thesis": "District cooling near-monopoly",
+      "layer": "GCC Utility",
+      "factor": "DIV",
+      "quotable": false,
+      "exchange": "DFM",
+      "metrics": null,
+      "signals": null,
+      "flag": [
+        "MANUAL",
+        "GCC/SG \u2014 price not on feed; judgment card"
+      ]
+    },
+    {
+      "sym": "ADNOCDRILL.AE",
+      "name": "ADNOC Drilling (ADX)",
+      "thesis": "90% contracted EBITDA \u2014 take-or-pay",
+      "layer": "GCC Energy",
+      "factor": "DIV",
+      "quotable": false,
+      "exchange": "ADX",
+      "metrics": null,
+      "signals": null,
+      "flag": [
+        "MANUAL",
+        "GCC/SG \u2014 price not on feed; judgment card"
+      ]
+    },
+    {
+      "sym": "2082.SR",
+      "name": "ACWA Power (Tadawul)",
+      "thesis": "Desalination bottleneck \u2014 value-trap watch",
+      "layer": "GCC Utility",
+      "factor": "DIV",
+      "quotable": false,
+      "exchange": "Tadawul",
+      "metrics": null,
+      "signals": null,
+      "flag": [
+        "MANUAL",
+        "GCC/SG \u2014 price not on feed; judgment card"
+      ]
+    },
+    {
+      "sym": "S68.SI",
+      "name": "SGX (Singapore)",
+      "thesis": "Exchange monopoly \u2014 financial infra toll",
+      "layer": "SG Infra",
+      "factor": "DIV",
+      "quotable": false,
+      "exchange": "SGX",
+      "metrics": null,
+      "signals": null,
+      "flag": [
+        "MANUAL",
+        "GCC/SG \u2014 price not on feed; judgment card"
+      ]
+    }
+  ]
+}
